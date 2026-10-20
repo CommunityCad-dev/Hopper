@@ -1,0 +1,11 @@
+node_modules/
+web/dist/
+*.tsbuildinfo
+__pycache__/
+*.pyc
+dev/.venv/
+dist/
+
+# OrcaSlicer writes result.json to its working directory when run without
+# --outputdir (even for --help). The plugin always passes --outputdir.
+/result.json

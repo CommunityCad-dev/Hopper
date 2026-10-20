@@ -1,0 +1,22 @@
+name: Bug
+description: Something in the plugin doesn't work as it should.
+labels: [bug]
+body:
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened
+      description: What you did, what you expected, and what happened instead.
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      placeholder: "1. Open Browse\n2. ..."
+  - type: textarea
+    id: versions
+    attributes:
+      label: Versions
+      description: Filled in by the plugin. No addresses, tokens or file names.
+      render: text

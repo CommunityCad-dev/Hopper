@@ -1,0 +1,16 @@
+name: General feedback
+description: Anything else about the plugin.
+labels: [feedback]
+body:
+  - type: textarea
+    id: what
+    attributes:
+      label: Your feedback
+    validations:
+      required: true
+  - type: textarea
+    id: versions
+    attributes:
+      label: Versions
+      description: Filled in by the plugin.
+      render: text

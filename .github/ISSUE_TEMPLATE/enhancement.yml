@@ -1,0 +1,17 @@
+name: Enhancement
+description: Something the plugin does that could work better.
+labels: [enhancement]
+body:
+  - type: textarea
+    id: what
+    attributes:
+      label: What could be better
+      description: Which part, and how you'd like it to work.
+    validations:
+      required: true
+  - type: textarea
+    id: versions
+    attributes:
+      label: Versions
+      description: Filled in by the plugin.
+      render: text

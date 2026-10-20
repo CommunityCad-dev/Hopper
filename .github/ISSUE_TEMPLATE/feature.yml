@@ -1,0 +1,17 @@
+name: Feature request
+description: Something the plugin doesn't do yet.
+labels: [feature-request]
+body:
+  - type: textarea
+    id: what
+    attributes:
+      label: What would you like it to do
+      description: And what it would let you do that you can't today.
+    validations:
+      required: true
+  - type: textarea
+    id: versions
+    attributes:
+      label: Versions
+      description: Filled in by the plugin.
+      render: text

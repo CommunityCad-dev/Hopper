@@ -1,0 +1,1439 @@
+{
+ "orca": "v2.4.2",
+ "source": "src/libslic3r/Preset.cpp s_Preset_print_options",
+ "status": "DRAFT: needs the reviewer's sign-off on #49",
+ "classes": {
+  "layer_height": {
+   "class": "intent",
+   "reason": "layers and shells: how strong and how fine the model should be"
+  },
+  "initial_layer_print_height": {
+   "class": "tuning",
+   "reason": "first layer height: this printer's bed and Z offset"
+  },
+  "wall_loops": {
+   "class": "intent",
+   "reason": "layers and shells: how strong and how fine the model should be"
+  },
+  "alternate_extra_wall": {
+   "class": "intent",
+   "reason": "layers and shells: how strong and how fine the model should be"
+  },
+  "slice_closing_radius": {
+   "class": "tuning",
+   "reason": "Arachne wall engine fine-tuning: the slicer and nozzle"
+  },
+  "spiral_mode": {
+   "class": "intent",
+   "reason": "special modes the model is designed for"
+  },
+  "spiral_mode_smooth": {
+   "class": "intent",
+   "reason": "special modes the model is designed for"
+  },
+  "spiral_mode_max_xy_smoothing": {
+   "class": "intent",
+   "reason": "special modes the model is designed for"
+  },
+  "spiral_starting_flow_ratio": {
+   "class": "tuning",
+   "reason": "flow ratio: a calibration of this printer and filament"
+  },
+  "spiral_finishing_flow_ratio": {
+   "class": "tuning",
+   "reason": "flow ratio: a calibration of this printer and filament"
+  },
+  "slicing_mode": {
+   "class": "intent",
+   "reason": "special modes the model is designed for"
+  },
+  "top_shell_layers": {
+   "class": "intent",
+   "reason": "layers and shells: how strong and how fine the model should be"
+  },
+  "top_shell_thickness": {
+   "class": "intent",
+   "reason": "layers and shells: how strong and how fine the model should be"
+  },
+  "top_surface_density": {
+   "class": "intent",
+   "reason": "layers and shells: how strong and how fine the model should be"
+  },
+  "bottom_surface_density": {
+   "class": "intent",
+   "reason": "layers and shells: how strong and how fine the model should be"
+  },
+  "bottom_shell_layers": {
+   "class": "intent",
+   "reason": "layers and shells: how strong and how fine the model should be"
+  },
+  "bottom_shell_thickness": {
+   "class": "intent",
+   "reason": "layers and shells: how strong and how fine the model should be"
+  },
+  "extra_perimeters_on_overhangs": {
+   "class": "intent",
+   "reason": "layers and shells: how strong and how fine the model should be"
+  },
+  "ensure_vertical_shell_thickness": {
+   "class": "intent",
+   "reason": "layers and shells: how strong and how fine the model should be"
+  },
+  "reduce_crossing_wall": {
+   "class": "tuning",
+   "reason": "travel, wipe and retraction behaviour: the printer's extruder and ooze",
+   "review": "travel avoidance: tuning, but visible on the surface"
+  },
+  "detect_thin_wall": {
+   "class": "intent",
+   "reason": "layers and shells: how strong and how fine the model should be"
+  },
+  "detect_overhang_wall": {
+   "class": "intent",
+   "reason": "walls and seams: how the surface looks"
+  },
+  "overhang_reverse": {
+   "class": "intent",
+   "reason": "walls and seams: how the surface looks"
+  },
+  "overhang_reverse_threshold": {
+   "class": "intent",
+   "reason": "walls and seams: how the surface looks"
+  },
+  "overhang_reverse_internal_only": {
+   "class": "intent",
+   "reason": "walls and seams: how the surface looks"
+  },
+  "wall_direction": {
+   "class": "intent",
+   "reason": "walls and seams: how the surface looks"
+  },
+  "seam_position": {
+   "class": "intent",
+   "reason": "walls and seams: how the surface looks"
+  },
+  "staggered_inner_seams": {
+   "class": "intent",
+   "reason": "walls and seams: how the surface looks"
+  },
+  "wall_sequence": {
+   "class": "intent",
+   "reason": "walls and seams: how the surface looks"
+  },
+  "is_infill_first": {
+   "class": "intent",
+   "reason": "infill: the model's strength and weight"
+  },
+  "sparse_infill_density": {
+   "class": "intent",
+   "reason": "infill: the model's strength and weight"
+  },
+  "fill_multiline": {
+   "class": "intent",
+   "reason": "infill: the model's strength and weight"
+  },
+  "gyroid_optimized": {
+   "class": "intent",
+   "reason": "infill: the model's strength and weight"
+  },
+  "sparse_infill_pattern": {
+   "class": "intent",
+   "reason": "infill: the model's strength and weight"
+  },
+  "lateral_lattice_angle_1": {
+   "class": "intent",
+   "reason": "infill: the model's strength and weight"
+  },
+  "lateral_lattice_angle_2": {
+   "class": "intent",
+   "reason": "infill: the model's strength and weight"
+  },
+  "infill_overhang_angle": {
+   "class": "intent",
+   "reason": "infill: the model's strength and weight"
+  },
+  "lightning_overhang_angle": {
+   "class": "intent",
+   "reason": "infill: the model's strength and weight"
+  },
+  "lightning_prune_angle": {
+   "class": "intent",
+   "reason": "infill: the model's strength and weight"
+  },
+  "lightning_straightening_angle": {
+   "class": "intent",
+   "reason": "infill: the model's strength and weight"
+  },
+  "top_surface_pattern": {
+   "class": "intent",
+   "reason": "infill: the model's strength and weight"
+  },
+  "bottom_surface_pattern": {
+   "class": "intent",
+   "reason": "infill: the model's strength and weight"
+  },
+  "infill_direction": {
+   "class": "intent",
+   "reason": "infill: the model's strength and weight"
+  },
+  "solid_infill_direction": {
+   "class": "intent",
+   "reason": "infill: the model's strength and weight"
+  },
+  "counterbore_hole_bridging": {
+   "class": "intent",
+   "reason": "bridges and overhangs: the model's geometry"
+  },
+  "infill_shift_step": {
+   "class": "intent",
+   "reason": "infill: the model's strength and weight"
+  },
+  "sparse_infill_rotate_template": {
+   "class": "intent",
+   "reason": "infill: the model's strength and weight"
+  },
+  "solid_infill_rotate_template": {
+   "class": "intent",
+   "reason": "infill: the model's strength and weight"
+  },
+  "symmetric_infill_y_axis": {
+   "class": "intent",
+   "reason": "infill: the model's strength and weight"
+  },
+  "skeleton_infill_density": {
+   "class": "intent",
+   "reason": "infill: the model's strength and weight"
+  },
+  "infill_lock_depth": {
+   "class": "intent",
+   "reason": "infill: the model's strength and weight"
+  },
+  "skin_infill_depth": {
+   "class": "intent",
+   "reason": "infill: the model's strength and weight"
+  },
+  "skin_infill_density": {
+   "class": "intent",
+   "reason": "infill: the model's strength and weight"
+  },
+  "align_infill_direction_to_model": {
+   "class": "intent",
+   "reason": "infill: the model's strength and weight"
+  },
+  "extra_solid_infills": {
+   "class": "intent",
+   "reason": "layers and shells: how strong and how fine the model should be"
+  },
+  "minimum_sparse_infill_area": {
+   "class": "intent",
+   "reason": "infill: the model's strength and weight"
+  },
+  "reduce_infill_retraction": {
+   "class": "tuning",
+   "reason": "travel, wipe and retraction behaviour: the printer's extruder and ooze"
+  },
+  "internal_solid_infill_pattern": {
+   "class": "intent",
+   "reason": "infill: the model's strength and weight"
+  },
+  "gap_fill_target": {
+   "class": "intent",
+   "reason": "infill: the model's strength and weight"
+  },
+  "ironing_type": {
+   "class": "intent",
+   "reason": "surface finish choices: ironing, fuzzy skin, smoothing"
+  },
+  "ironing_pattern": {
+   "class": "intent",
+   "reason": "surface finish choices: ironing, fuzzy skin, smoothing"
+  },
+  "ironing_flow": {
+   "class": "tuning",
+   "reason": "flow ratio: a calibration of this printer and filament"
+  },
+  "ironing_speed": {
+   "class": "tuning",
+   "reason": "speed: depends on the printer's motion and hotend"
+  },
+  "ironing_spacing": {
+   "class": "intent",
+   "reason": "surface finish choices: ironing, fuzzy skin, smoothing"
+  },
+  "ironing_angle": {
+   "class": "intent",
+   "reason": "surface finish choices: ironing, fuzzy skin, smoothing"
+  },
+  "ironing_angle_fixed": {
+   "class": "intent",
+   "reason": "surface finish choices: ironing, fuzzy skin, smoothing"
+  },
+  "ironing_inset": {
+   "class": "intent",
+   "reason": "surface finish choices: ironing, fuzzy skin, smoothing"
+  },
+  "support_ironing": {
+   "class": "intent",
+   "reason": "supports and rafts: where the model needs holding up"
+  },
+  "support_ironing_pattern": {
+   "class": "intent",
+   "reason": "supports and rafts: where the model needs holding up"
+  },
+  "support_ironing_flow": {
+   "class": "tuning",
+   "reason": "flow ratio: a calibration of this printer and filament"
+  },
+  "support_ironing_spacing": {
+   "class": "intent",
+   "reason": "supports and rafts: where the model needs holding up"
+  },
+  "max_travel_detour_distance": {
+   "class": "tuning",
+   "reason": "travel, wipe and retraction behaviour: the printer's extruder and ooze"
+  },
+  "fuzzy_skin": {
+   "class": "intent",
+   "reason": "surface finish choices: ironing, fuzzy skin, smoothing"
+  },
+  "fuzzy_skin_thickness": {
+   "class": "intent",
+   "reason": "surface finish choices: ironing, fuzzy skin, smoothing"
+  },
+  "fuzzy_skin_point_distance": {
+   "class": "intent",
+   "reason": "surface finish choices: ironing, fuzzy skin, smoothing"
+  },
+  "fuzzy_skin_first_layer": {
+   "class": "intent",
+   "reason": "surface finish choices: ironing, fuzzy skin, smoothing"
+  },
+  "fuzzy_skin_noise_type": {
+   "class": "intent",
+   "reason": "surface finish choices: ironing, fuzzy skin, smoothing"
+  },
+  "fuzzy_skin_mode": {
+   "class": "intent",
+   "reason": "surface finish choices: ironing, fuzzy skin, smoothing"
+  },
+  "fuzzy_skin_scale": {
+   "class": "intent",
+   "reason": "surface finish choices: ironing, fuzzy skin, smoothing"
+  },
+  "fuzzy_skin_octaves": {
+   "class": "intent",
+   "reason": "surface finish choices: ironing, fuzzy skin, smoothing"
+  },
+  "fuzzy_skin_persistence": {
+   "class": "intent",
+   "reason": "surface finish choices: ironing, fuzzy skin, smoothing"
+  },
+  "fuzzy_skin_ripples_per_layer": {
+   "class": "intent",
+   "reason": "surface finish choices: ironing, fuzzy skin, smoothing"
+  },
+  "fuzzy_skin_ripple_offset": {
+   "class": "intent",
+   "reason": "surface finish choices: ironing, fuzzy skin, smoothing"
+  },
+  "fuzzy_skin_layers_between_ripple_offset": {
+   "class": "intent",
+   "reason": "surface finish choices: ironing, fuzzy skin, smoothing"
+  },
+  "max_volumetric_extrusion_rate_slope": {
+   "class": "tuning",
+   "reason": "extrusion smoothing: the printer's extruder and hotend"
+  },
+  "max_volumetric_extrusion_rate_slope_segment_length": {
+   "class": "tuning",
+   "reason": "extrusion smoothing: the printer's extruder and hotend"
+  },
+  "extrusion_rate_smoothing_external_perimeter_only": {
+   "class": "tuning",
+   "reason": "extrusion smoothing: the printer's extruder and hotend"
+  },
+  "inner_wall_speed": {
+   "class": "tuning",
+   "reason": "speed: depends on the printer's motion and hotend"
+  },
+  "outer_wall_speed": {
+   "class": "tuning",
+   "reason": "speed: depends on the printer's motion and hotend"
+  },
+  "sparse_infill_speed": {
+   "class": "tuning",
+   "reason": "speed: depends on the printer's motion and hotend"
+  },
+  "internal_solid_infill_speed": {
+   "class": "tuning",
+   "reason": "speed: depends on the printer's motion and hotend"
+  },
+  "top_surface_speed": {
+   "class": "tuning",
+   "reason": "speed: depends on the printer's motion and hotend"
+  },
+  "support_speed": {
+   "class": "tuning",
+   "reason": "speed: depends on the printer's motion and hotend"
+  },
+  "support_object_xy_distance": {
+   "class": "intent",
+   "reason": "supports and rafts: where the model needs holding up",
+   "review": "as above"
+  },
+  "support_object_first_layer_gap": {
+   "class": "intent",
+   "reason": "supports and rafts: where the model needs holding up"
+  },
+  "support_interface_speed": {
+   "class": "tuning",
+   "reason": "speed: depends on the printer's motion and hotend"
+  },
+  "bridge_speed": {
+   "class": "tuning",
+   "reason": "speed: depends on the printer's motion and hotend"
+  },
+  "internal_bridge_speed": {
+   "class": "tuning",
+   "reason": "speed: depends on the printer's motion and hotend"
+  },
+  "gap_infill_speed": {
+   "class": "tuning",
+   "reason": "speed: depends on the printer's motion and hotend"
+  },
+  "travel_speed": {
+   "class": "tuning",
+   "reason": "speed: depends on the printer's motion and hotend"
+  },
+  "travel_speed_z": {
+   "class": "tuning",
+   "reason": "speed: depends on the printer's motion and hotend"
+  },
+  "initial_layer_speed": {
+   "class": "tuning",
+   "reason": "speed: depends on the printer's motion and hotend"
+  },
+  "outer_wall_acceleration": {
+   "class": "tuning",
+   "reason": "acceleration and jerk: the printer's motion system"
+  },
+  "initial_layer_acceleration": {
+   "class": "tuning",
+   "reason": "acceleration and jerk: the printer's motion system"
+  },
+  "top_surface_acceleration": {
+   "class": "tuning",
+   "reason": "acceleration and jerk: the printer's motion system"
+  },
+  "default_acceleration": {
+   "class": "tuning",
+   "reason": "acceleration and jerk: the printer's motion system"
+  },
+  "skirt_type": {
+   "class": "intent",
+   "reason": "skirt and draft shield: some models rely on them to stay down"
+  },
+  "skirt_loops": {
+   "class": "intent",
+   "reason": "skirt and draft shield: some models rely on them to stay down"
+  },
+  "skirt_speed": {
+   "class": "tuning",
+   "reason": "speed: depends on the printer's motion and hotend"
+  },
+  "min_skirt_length": {
+   "class": "intent",
+   "reason": "skirt and draft shield: some models rely on them to stay down"
+  },
+  "skirt_distance": {
+   "class": "intent",
+   "reason": "skirt and draft shield: some models rely on them to stay down"
+  },
+  "skirt_start_angle": {
+   "class": "intent",
+   "reason": "skirt and draft shield: some models rely on them to stay down"
+  },
+  "skirt_height": {
+   "class": "intent",
+   "reason": "skirt and draft shield: some models rely on them to stay down"
+  },
+  "single_loop_draft_shield": {
+   "class": "intent",
+   "reason": "skirt and draft shield: some models rely on them to stay down"
+  },
+  "draft_shield": {
+   "class": "intent",
+   "reason": "skirt and draft shield: some models rely on them to stay down"
+  },
+  "brim_width": {
+   "class": "intent",
+   "reason": "brim: holding this model down"
+  },
+  "brim_object_gap": {
+   "class": "intent",
+   "reason": "brim: holding this model down",
+   "review": "how easily the brim snaps off: arguably tuning"
+  },
+  "brim_flow_ratio": {
+   "class": "tuning",
+   "reason": "flow ratio: a calibration of this printer and filament"
+  },
+  "brim_use_efc_outline": {
+   "class": "intent",
+   "reason": "brim: holding this model down"
+  },
+  "combine_brims": {
+   "class": "intent",
+   "reason": "brim: holding this model down"
+  },
+  "brim_type": {
+   "class": "intent",
+   "reason": "brim: holding this model down"
+  },
+  "brim_ears_max_angle": {
+   "class": "intent",
+   "reason": "brim: holding this model down"
+  },
+  "brim_ears_detection_length": {
+   "class": "intent",
+   "reason": "brim: holding this model down"
+  },
+  "enable_support": {
+   "class": "intent",
+   "reason": "supports and rafts: where the model needs holding up"
+  },
+  "support_type": {
+   "class": "intent",
+   "reason": "supports and rafts: where the model needs holding up"
+  },
+  "support_threshold_angle": {
+   "class": "intent",
+   "reason": "supports and rafts: where the model needs holding up"
+  },
+  "support_threshold_overlap": {
+   "class": "intent",
+   "reason": "supports and rafts: where the model needs holding up"
+  },
+  "enforce_support_layers": {
+   "class": "intent",
+   "reason": "supports and rafts: where the model needs holding up"
+  },
+  "raft_layers": {
+   "class": "intent",
+   "reason": "supports and rafts: where the model needs holding up"
+  },
+  "raft_first_layer_density": {
+   "class": "intent",
+   "reason": "supports and rafts: where the model needs holding up"
+  },
+  "raft_first_layer_expansion": {
+   "class": "intent",
+   "reason": "supports and rafts: where the model needs holding up"
+  },
+  "raft_contact_distance": {
+   "class": "intent",
+   "reason": "supports and rafts: where the model needs holding up"
+  },
+  "raft_expansion": {
+   "class": "intent",
+   "reason": "supports and rafts: where the model needs holding up"
+  },
+  "support_base_pattern": {
+   "class": "intent",
+   "reason": "supports and rafts: where the model needs holding up"
+  },
+  "support_base_pattern_spacing": {
+   "class": "intent",
+   "reason": "supports and rafts: where the model needs holding up"
+  },
+  "support_expansion": {
+   "class": "intent",
+   "reason": "supports and rafts: where the model needs holding up"
+  },
+  "support_style": {
+   "class": "intent",
+   "reason": "supports and rafts: where the model needs holding up"
+  },
+  "print_extruder_id": {
+   "class": "bookkeeping",
+   "reason": "managed by the plugin or Orca itself, never shared"
+  },
+  "print_extruder_variant": {
+   "class": "bookkeeping",
+   "reason": "managed by the plugin or Orca itself, never shared"
+  },
+  "independent_support_layer_height": {
+   "class": "intent",
+   "reason": "supports and rafts: where the model needs holding up"
+  },
+  "support_angle": {
+   "class": "intent",
+   "reason": "supports and rafts: where the model needs holding up"
+  },
+  "support_interface_top_layers": {
+   "class": "intent",
+   "reason": "supports and rafts: where the model needs holding up"
+  },
+  "support_interface_bottom_layers": {
+   "class": "intent",
+   "reason": "supports and rafts: where the model needs holding up"
+  },
+  "support_interface_pattern": {
+   "class": "intent",
+   "reason": "supports and rafts: where the model needs holding up"
+  },
+  "support_interface_spacing": {
+   "class": "intent",
+   "reason": "supports and rafts: where the model needs holding up"
+  },
+  "support_interface_loop_pattern": {
+   "class": "intent",
+   "reason": "supports and rafts: where the model needs holding up"
+  },
+  "support_top_z_distance": {
+   "class": "intent",
+   "reason": "supports and rafts: where the model needs holding up",
+   "review": "support gap: the designer's removability choice, but it depends on the material too"
+  },
+  "support_on_build_plate_only": {
+   "class": "intent",
+   "reason": "supports and rafts: where the model needs holding up"
+  },
+  "support_critical_regions_only": {
+   "class": "intent",
+   "reason": "supports and rafts: where the model needs holding up"
+  },
+  "bridge_no_support": {
+   "class": "intent",
+   "reason": "supports and rafts: where the model needs holding up"
+  },
+  "thick_bridges": {
+   "class": "intent",
+   "reason": "bridges and overhangs: the model's geometry"
+  },
+  "thick_internal_bridges": {
+   "class": "intent",
+   "reason": "bridges and overhangs: the model's geometry"
+  },
+  "dont_filter_internal_bridges": {
+   "class": "intent",
+   "reason": "bridges and overhangs: the model's geometry"
+  },
+  "enable_extra_bridge_layer": {
+   "class": "intent",
+   "reason": "bridges and overhangs: the model's geometry"
+  },
+  "max_bridge_length": {
+   "class": "intent",
+   "reason": "bridges and overhangs: the model's geometry"
+  },
+  "print_sequence": {
+   "class": "tuning",
+   "reason": "printing object by object needs this printer's toolhead clearance"
+  },
+  "print_order": {
+   "class": "intent",
+   "reason": "special modes the model is designed for",
+   "review": "object order on the plate: intent, low stakes"
+  },
+  "support_remove_small_overhang": {
+   "class": "intent",
+   "reason": "supports and rafts: where the model needs holding up"
+  },
+  "filename_format": {
+   "class": "bookkeeping",
+   "reason": "managed by the plugin or Orca itself, never shared"
+  },
+  "outer_wall_filament_id": {
+   "class": "bookkeeping",
+   "reason": "which filament goes where: multi-material, #53"
+  },
+  "inner_wall_filament_id": {
+   "class": "bookkeeping",
+   "reason": "which filament goes where: multi-material, #53"
+  },
+  "support_bottom_z_distance": {
+   "class": "intent",
+   "reason": "supports and rafts: where the model needs holding up"
+  },
+  "sparse_infill_filament_id": {
+   "class": "bookkeeping",
+   "reason": "which filament goes where: multi-material, #53"
+  },
+  "internal_solid_filament_id": {
+   "class": "bookkeeping",
+   "reason": "which filament goes where: multi-material, #53"
+  },
+  "top_surface_filament_id": {
+   "class": "bookkeeping",
+   "reason": "which filament goes where: multi-material, #53"
+  },
+  "bottom_surface_filament_id": {
+   "class": "bookkeeping",
+   "reason": "which filament goes where: multi-material, #53"
+  },
+  "support_filament": {
+   "class": "bookkeeping",
+   "reason": "which filament goes where: multi-material, #53"
+  },
+  "support_interface_filament": {
+   "class": "bookkeeping",
+   "reason": "which filament goes where: multi-material, #53"
+  },
+  "support_interface_not_for_body": {
+   "class": "intent",
+   "reason": "supports and rafts: where the model needs holding up"
+  },
+  "ooze_prevention": {
+   "class": "tuning",
+   "reason": "tool temperatures: the printer's tools"
+  },
+  "standby_temperature_delta": {
+   "class": "tuning",
+   "reason": "tool temperatures: the printer's tools"
+  },
+  "preheat_time": {
+   "class": "tuning",
+   "reason": "tool temperatures: the printer's tools"
+  },
+  "preheat_steps": {
+   "class": "tuning",
+   "reason": "tool temperatures: the printer's tools"
+  },
+  "interface_shells": {
+   "class": "tuning",
+   "reason": "prime tower and purging: multi-material hardware, #53"
+  },
+  "line_width": {
+   "class": "tuning",
+   "reason": "line width: depends on the nozzle"
+  },
+  "initial_layer_line_width": {
+   "class": "tuning",
+   "reason": "line width: depends on the nozzle"
+  },
+  "inner_wall_line_width": {
+   "class": "tuning",
+   "reason": "line width: depends on the nozzle"
+  },
+  "outer_wall_line_width": {
+   "class": "tuning",
+   "reason": "line width: depends on the nozzle"
+  },
+  "sparse_infill_line_width": {
+   "class": "tuning",
+   "reason": "line width: depends on the nozzle"
+  },
+  "internal_solid_infill_line_width": {
+   "class": "tuning",
+   "reason": "line width: depends on the nozzle"
+  },
+  "skin_infill_line_width": {
+   "class": "tuning",
+   "reason": "line width: depends on the nozzle"
+  },
+  "skeleton_infill_line_width": {
+   "class": "tuning",
+   "reason": "line width: depends on the nozzle"
+  },
+  "top_surface_line_width": {
+   "class": "tuning",
+   "reason": "line width: depends on the nozzle"
+  },
+  "support_line_width": {
+   "class": "tuning",
+   "reason": "line width: depends on the nozzle"
+  },
+  "infill_wall_overlap": {
+   "class": "tuning",
+   "reason": "travel, wipe and retraction behaviour: the printer's extruder and ooze"
+  },
+  "top_bottom_infill_wall_overlap": {
+   "class": "tuning",
+   "reason": "travel, wipe and retraction behaviour: the printer's extruder and ooze"
+  },
+  "bridge_flow": {
+   "class": "tuning",
+   "reason": "flow ratio: a calibration of this printer and filament"
+  },
+  "bridge_line_width": {
+   "class": "tuning",
+   "reason": "line width: depends on the nozzle"
+  },
+  "internal_bridge_flow": {
+   "class": "tuning",
+   "reason": "flow ratio: a calibration of this printer and filament"
+  },
+  "elefant_foot_compensation": {
+   "class": "tuning",
+   "reason": "dimensional compensation: a calibration of this printer"
+  },
+  "elefant_foot_compensation_layers": {
+   "class": "tuning",
+   "reason": "dimensional compensation: a calibration of this printer"
+  },
+  "elefant_foot_layers_density": {
+   "class": "tuning",
+   "reason": "dimensional compensation: a calibration of this printer"
+  },
+  "xy_contour_compensation": {
+   "class": "tuning",
+   "reason": "dimensional compensation: a calibration of this printer"
+  },
+  "xy_hole_compensation": {
+   "class": "tuning",
+   "reason": "dimensional compensation: a calibration of this printer"
+  },
+  "resolution": {
+   "class": "tuning",
+   "reason": "path resolution and arc output: the printer's firmware and motion"
+  },
+  "enable_prime_tower": {
+   "class": "tuning",
+   "reason": "prime tower and purging: multi-material hardware, #53"
+  },
+  "prime_tower_enable_framework": {
+   "class": "tuning",
+   "reason": "prime tower and purging: multi-material hardware, #53"
+  },
+  "prime_tower_width": {
+   "class": "tuning",
+   "reason": "prime tower and purging: multi-material hardware, #53"
+  },
+  "prime_tower_brim_width": {
+   "class": "tuning",
+   "reason": "prime tower and purging: multi-material hardware, #53"
+  },
+  "prime_tower_skip_points": {
+   "class": "tuning",
+   "reason": "prime tower and purging: multi-material hardware, #53"
+  },
+  "prime_volume": {
+   "class": "tuning",
+   "reason": "prime tower and purging: multi-material hardware, #53"
+  },
+  "prime_tower_infill_gap": {
+   "class": "tuning",
+   "reason": "prime tower and purging: multi-material hardware, #53"
+  },
+  "prime_tower_flat_ironing": {
+   "class": "tuning",
+   "reason": "prime tower and purging: multi-material hardware, #53"
+  },
+  "enable_tower_interface_features": {
+   "class": "tuning",
+   "reason": "prime tower and purging: multi-material hardware, #53"
+  },
+  "enable_tower_interface_cooldown_during_tower": {
+   "class": "tuning",
+   "reason": "prime tower and purging: multi-material hardware, #53"
+  },
+  "wipe_tower_no_sparse_layers": {
+   "class": "tuning",
+   "reason": "prime tower and purging: multi-material hardware, #53"
+  },
+  "compatible_printers": {
+   "class": "bookkeeping",
+   "reason": "managed by the plugin or Orca itself, never shared"
+  },
+  "compatible_printers_condition": {
+   "class": "bookkeeping",
+   "reason": "managed by the plugin or Orca itself, never shared"
+  },
+  "inherits": {
+   "class": "bookkeeping",
+   "reason": "managed by the plugin or Orca itself, never shared"
+  },
+  "flush_into_infill": {
+   "class": "tuning",
+   "reason": "prime tower and purging: multi-material hardware, #53"
+  },
+  "flush_into_objects": {
+   "class": "tuning",
+   "reason": "prime tower and purging: multi-material hardware, #53"
+  },
+  "flush_into_support": {
+   "class": "tuning",
+   "reason": "prime tower and purging: multi-material hardware, #53"
+  },
+  "tree_support_branch_angle": {
+   "class": "intent",
+   "reason": "supports and rafts: where the model needs holding up"
+  },
+  "tree_support_angle_slow": {
+   "class": "intent",
+   "reason": "supports and rafts: where the model needs holding up"
+  },
+  "tree_support_wall_count": {
+   "class": "intent",
+   "reason": "supports and rafts: where the model needs holding up"
+  },
+  "tree_support_top_rate": {
+   "class": "intent",
+   "reason": "supports and rafts: where the model needs holding up"
+  },
+  "tree_support_branch_distance": {
+   "class": "intent",
+   "reason": "supports and rafts: where the model needs holding up"
+  },
+  "tree_support_tip_diameter": {
+   "class": "intent",
+   "reason": "supports and rafts: where the model needs holding up"
+  },
+  "tree_support_branch_diameter": {
+   "class": "intent",
+   "reason": "supports and rafts: where the model needs holding up"
+  },
+  "tree_support_branch_diameter_angle": {
+   "class": "intent",
+   "reason": "supports and rafts: where the model needs holding up"
+  },
+  "detect_narrow_internal_solid_infill": {
+   "class": "intent",
+   "reason": "infill: the model's strength and weight"
+  },
+  "gcode_add_line_number": {
+   "class": "bookkeeping",
+   "reason": "managed by the plugin or Orca itself, never shared"
+  },
+  "enable_arc_fitting": {
+   "class": "tuning",
+   "reason": "path resolution and arc output: the printer's firmware and motion"
+  },
+  "precise_z_height": {
+   "class": "tuning",
+   "reason": "path resolution and arc output: the printer's firmware and motion"
+  },
+  "infill_combination": {
+   "class": "intent",
+   "reason": "infill: the model's strength and weight"
+  },
+  "infill_combination_max_layer_height": {
+   "class": "intent",
+   "reason": "infill: the model's strength and weight"
+  },
+  "support_bottom_interface_spacing": {
+   "class": "intent",
+   "reason": "supports and rafts: where the model needs holding up"
+  },
+  "enable_overhang_speed": {
+   "class": "tuning",
+   "reason": "speed: depends on the printer's motion and hotend"
+  },
+  "slowdown_for_curled_perimeters": {
+   "class": "tuning",
+   "reason": "speed: depends on the printer's motion and hotend"
+  },
+  "overhang_1_4_speed": {
+   "class": "tuning",
+   "reason": "speed: depends on the printer's motion and hotend"
+  },
+  "overhang_2_4_speed": {
+   "class": "tuning",
+   "reason": "speed: depends on the printer's motion and hotend"
+  },
+  "overhang_3_4_speed": {
+   "class": "tuning",
+   "reason": "speed: depends on the printer's motion and hotend"
+  },
+  "overhang_4_4_speed": {
+   "class": "tuning",
+   "reason": "speed: depends on the printer's motion and hotend"
+  },
+  "initial_layer_infill_speed": {
+   "class": "tuning",
+   "reason": "speed: depends on the printer's motion and hotend"
+  },
+  "only_one_wall_top": {
+   "class": "intent",
+   "reason": "layers and shells: how strong and how fine the model should be"
+  },
+  "timelapse_type": {
+   "class": "bookkeeping",
+   "reason": "managed by the plugin or Orca itself, never shared"
+  },
+  "wall_generator": {
+   "class": "intent",
+   "reason": "walls and seams: how the surface looks",
+   "review": "Arachne vs classic: a quality choice the creator may rely on"
+  },
+  "wall_transition_length": {
+   "class": "tuning",
+   "reason": "Arachne wall engine fine-tuning: the slicer and nozzle"
+  },
+  "wall_transition_filter_deviation": {
+   "class": "tuning",
+   "reason": "Arachne wall engine fine-tuning: the slicer and nozzle"
+  },
+  "wall_transition_angle": {
+   "class": "tuning",
+   "reason": "Arachne wall engine fine-tuning: the slicer and nozzle"
+  },
+  "wall_distribution_count": {
+   "class": "tuning",
+   "reason": "Arachne wall engine fine-tuning: the slicer and nozzle"
+  },
+  "min_feature_size": {
+   "class": "tuning",
+   "reason": "Arachne wall engine fine-tuning: the slicer and nozzle"
+  },
+  "min_bead_width": {
+   "class": "tuning",
+   "reason": "Arachne wall engine fine-tuning: the slicer and nozzle"
+  },
+  "post_process": {
+   "class": "bookkeeping",
+   "reason": "runs code or scripts on the printer: never shared between printers"
+  },
+  "process_change_extrusion_role_gcode": {
+   "class": "bookkeeping",
+   "reason": "runs code or scripts on the printer: never shared between printers"
+  },
+  "min_length_factor": {
+   "class": "tuning",
+   "reason": "Arachne wall engine fine-tuning: the slicer and nozzle"
+  },
+  "wall_maximum_resolution": {
+   "class": "tuning",
+   "reason": "path resolution and arc output: the printer's firmware and motion"
+  },
+  "wall_maximum_deviation": {
+   "class": "tuning",
+   "reason": "path resolution and arc output: the printer's firmware and motion"
+  },
+  "small_perimeter_speed": {
+   "class": "tuning",
+   "reason": "speed: depends on the printer's motion and hotend"
+  },
+  "small_perimeter_threshold": {
+   "class": "tuning",
+   "reason": "speed: depends on the printer's motion and hotend"
+  },
+  "bridge_angle": {
+   "class": "intent",
+   "reason": "bridges and overhangs: the model's geometry"
+  },
+  "internal_bridge_angle": {
+   "class": "intent",
+   "reason": "bridges and overhangs: the model's geometry"
+  },
+  "relative_bridge_angle": {
+   "class": "intent",
+   "reason": "bridges and overhangs: the model's geometry"
+  },
+  "filter_out_gap_fill": {
+   "class": "tuning",
+   "reason": "not matched by a rule: tuning by default, since tuning never travels",
+   "review": "defaulted"
+  },
+  "travel_acceleration": {
+   "class": "tuning",
+   "reason": "acceleration and jerk: the printer's motion system"
+  },
+  "inner_wall_acceleration": {
+   "class": "tuning",
+   "reason": "acceleration and jerk: the printer's motion system"
+  },
+  "min_width_top_surface": {
+   "class": "tuning",
+   "reason": "not matched by a rule: tuning by default, since tuning never travels",
+   "review": "defaulted"
+  },
+  "default_jerk": {
+   "class": "tuning",
+   "reason": "acceleration and jerk: the printer's motion system"
+  },
+  "outer_wall_jerk": {
+   "class": "tuning",
+   "reason": "acceleration and jerk: the printer's motion system"
+  },
+  "inner_wall_jerk": {
+   "class": "tuning",
+   "reason": "acceleration and jerk: the printer's motion system"
+  },
+  "infill_jerk": {
+   "class": "tuning",
+   "reason": "acceleration and jerk: the printer's motion system"
+  },
+  "top_surface_jerk": {
+   "class": "tuning",
+   "reason": "acceleration and jerk: the printer's motion system"
+  },
+  "initial_layer_jerk": {
+   "class": "tuning",
+   "reason": "acceleration and jerk: the printer's motion system"
+  },
+  "travel_jerk": {
+   "class": "tuning",
+   "reason": "acceleration and jerk: the printer's motion system"
+  },
+  "default_junction_deviation": {
+   "class": "tuning",
+   "reason": "acceleration and jerk: the printer's motion system"
+  },
+  "top_solid_infill_flow_ratio": {
+   "class": "tuning",
+   "reason": "flow ratio: a calibration of this printer and filament"
+  },
+  "bottom_solid_infill_flow_ratio": {
+   "class": "tuning",
+   "reason": "flow ratio: a calibration of this printer and filament"
+  },
+  "only_one_wall_first_layer": {
+   "class": "intent",
+   "reason": "layers and shells: how strong and how fine the model should be"
+  },
+  "print_flow_ratio": {
+   "class": "tuning",
+   "reason": "flow ratio: a calibration of this printer and filament"
+  },
+  "seam_gap": {
+   "class": "tuning",
+   "reason": "travel, wipe and retraction behaviour: the printer's extruder and ooze",
+   "review": "tuning (calibration), but it shows on the seam"
+  },
+  "set_other_flow_ratios": {
+   "class": "tuning",
+   "reason": "flow ratio: a calibration of this printer and filament"
+  },
+  "first_layer_flow_ratio": {
+   "class": "tuning",
+   "reason": "flow ratio: a calibration of this printer and filament"
+  },
+  "outer_wall_flow_ratio": {
+   "class": "tuning",
+   "reason": "flow ratio: a calibration of this printer and filament"
+  },
+  "inner_wall_flow_ratio": {
+   "class": "tuning",
+   "reason": "flow ratio: a calibration of this printer and filament"
+  },
+  "overhang_flow_ratio": {
+   "class": "tuning",
+   "reason": "flow ratio: a calibration of this printer and filament"
+  },
+  "sparse_infill_flow_ratio": {
+   "class": "tuning",
+   "reason": "flow ratio: a calibration of this printer and filament"
+  },
+  "internal_solid_infill_flow_ratio": {
+   "class": "tuning",
+   "reason": "flow ratio: a calibration of this printer and filament"
+  },
+  "gap_fill_flow_ratio": {
+   "class": "tuning",
+   "reason": "flow ratio: a calibration of this printer and filament"
+  },
+  "support_flow_ratio": {
+   "class": "tuning",
+   "reason": "flow ratio: a calibration of this printer and filament"
+  },
+  "support_interface_flow_ratio": {
+   "class": "tuning",
+   "reason": "flow ratio: a calibration of this printer and filament"
+  },
+  "role_based_wipe_speed": {
+   "class": "tuning",
+   "reason": "speed: depends on the printer's motion and hotend"
+  },
+  "wipe_speed": {
+   "class": "tuning",
+   "reason": "speed: depends on the printer's motion and hotend"
+  },
+  "accel_to_decel_enable": {
+   "class": "tuning",
+   "reason": "acceleration and jerk: the printer's motion system"
+  },
+  "accel_to_decel_factor": {
+   "class": "tuning",
+   "reason": "acceleration and jerk: the printer's motion system"
+  },
+  "wipe_on_loops": {
+   "class": "tuning",
+   "reason": "travel, wipe and retraction behaviour: the printer's extruder and ooze"
+  },
+  "wipe_before_external_loop": {
+   "class": "tuning",
+   "reason": "travel, wipe and retraction behaviour: the printer's extruder and ooze"
+  },
+  "bridge_density": {
+   "class": "intent",
+   "reason": "bridges and overhangs: the model's geometry"
+  },
+  "internal_bridge_density": {
+   "class": "intent",
+   "reason": "bridges and overhangs: the model's geometry"
+  },
+  "precise_outer_wall": {
+   "class": "tuning",
+   "reason": "path resolution and arc output: the printer's firmware and motion",
+   "review": "a quality choice, but it changes wall overlap per printer"
+  },
+  "bridge_acceleration": {
+   "class": "tuning",
+   "reason": "acceleration and jerk: the printer's motion system"
+  },
+  "sparse_infill_acceleration": {
+   "class": "tuning",
+   "reason": "acceleration and jerk: the printer's motion system"
+  },
+  "internal_solid_infill_acceleration": {
+   "class": "tuning",
+   "reason": "acceleration and jerk: the printer's motion system"
+  },
+  "tree_support_auto_brim": {
+   "class": "intent",
+   "reason": "supports and rafts: where the model needs holding up"
+  },
+  "tree_support_brim_width": {
+   "class": "intent",
+   "reason": "supports and rafts: where the model needs holding up"
+  },
+  "gcode_comments": {
+   "class": "bookkeeping",
+   "reason": "managed by the plugin or Orca itself, never shared"
+  },
+  "gcode_label_objects": {
+   "class": "bookkeeping",
+   "reason": "managed by the plugin or Orca itself, never shared"
+  },
+  "initial_layer_travel_speed": {
+   "class": "tuning",
+   "reason": "speed: depends on the printer's motion and hotend"
+  },
+  "initial_layer_travel_acceleration": {
+   "class": "tuning",
+   "reason": "acceleration and jerk: the printer's motion system"
+  },
+  "initial_layer_travel_jerk": {
+   "class": "tuning",
+   "reason": "acceleration and jerk: the printer's motion system"
+  },
+  "exclude_object": {
+   "class": "bookkeeping",
+   "reason": "managed by the plugin or Orca itself, never shared"
+  },
+  "slow_down_layers": {
+   "class": "tuning",
+   "reason": "speed: depends on the printer's motion and hotend"
+  },
+  "infill_anchor": {
+   "class": "intent",
+   "reason": "infill: the model's strength and weight"
+  },
+  "infill_anchor_max": {
+   "class": "intent",
+   "reason": "infill: the model's strength and weight"
+  },
+  "initial_layer_min_bead_width": {
+   "class": "tuning",
+   "reason": "Arachne wall engine fine-tuning: the slicer and nozzle"
+  },
+  "make_overhang_printable": {
+   "class": "intent",
+   "reason": "bridges and overhangs: the model's geometry"
+  },
+  "make_overhang_printable_angle": {
+   "class": "intent",
+   "reason": "bridges and overhangs: the model's geometry"
+  },
+  "make_overhang_printable_hole_size": {
+   "class": "intent",
+   "reason": "bridges and overhangs: the model's geometry"
+  },
+  "notes": {
+   "class": "bookkeeping",
+   "reason": "managed by the plugin or Orca itself, never shared"
+  },
+  "wipe_tower_cone_angle": {
+   "class": "tuning",
+   "reason": "prime tower and purging: multi-material hardware, #53"
+  },
+  "wipe_tower_extra_spacing": {
+   "class": "tuning",
+   "reason": "prime tower and purging: multi-material hardware, #53"
+  },
+  "wipe_tower_max_purge_speed": {
+   "class": "tuning",
+   "reason": "speed: depends on the printer's motion and hotend"
+  },
+  "wipe_tower_wall_type": {
+   "class": "tuning",
+   "reason": "prime tower and purging: multi-material hardware, #53"
+  },
+  "wipe_tower_extra_rib_length": {
+   "class": "tuning",
+   "reason": "prime tower and purging: multi-material hardware, #53"
+  },
+  "wipe_tower_rib_width": {
+   "class": "tuning",
+   "reason": "prime tower and purging: multi-material hardware, #53"
+  },
+  "wipe_tower_fillet_wall": {
+   "class": "tuning",
+   "reason": "prime tower and purging: multi-material hardware, #53"
+  },
+  "wipe_tower_filament": {
+   "class": "bookkeeping",
+   "reason": "which filament goes where: multi-material, #53"
+  },
+  "wiping_volumes_extruders": {
+   "class": "tuning",
+   "reason": "prime tower and purging: multi-material hardware, #53"
+  },
+  "wipe_tower_bridging": {
+   "class": "tuning",
+   "reason": "prime tower and purging: multi-material hardware, #53"
+  },
+  "wipe_tower_extra_flow": {
+   "class": "tuning",
+   "reason": "prime tower and purging: multi-material hardware, #53"
+  },
+  "single_extruder_multi_material_priming": {
+   "class": "tuning",
+   "reason": "prime tower and purging: multi-material hardware, #53"
+  },
+  "wipe_tower_rotation_angle": {
+   "class": "tuning",
+   "reason": "prime tower and purging: multi-material hardware, #53"
+  },
+  "tree_support_branch_distance_organic": {
+   "class": "intent",
+   "reason": "supports and rafts: where the model needs holding up"
+  },
+  "tree_support_branch_diameter_organic": {
+   "class": "intent",
+   "reason": "supports and rafts: where the model needs holding up"
+  },
+  "tree_support_branch_angle_organic": {
+   "class": "intent",
+   "reason": "supports and rafts: where the model needs holding up"
+  },
+  "hole_to_polyhole": {
+   "class": "intent",
+   "reason": "special modes the model is designed for"
+  },
+  "hole_to_polyhole_threshold": {
+   "class": "intent",
+   "reason": "special modes the model is designed for"
+  },
+  "hole_to_polyhole_twisted": {
+   "class": "intent",
+   "reason": "special modes the model is designed for"
+  },
+  "mmu_segmented_region_max_width": {
+   "class": "tuning",
+   "reason": "prime tower and purging: multi-material hardware, #53"
+  },
+  "mmu_segmented_region_interlocking_depth": {
+   "class": "tuning",
+   "reason": "prime tower and purging: multi-material hardware, #53"
+  },
+  "small_area_infill_flow_compensation": {
+   "class": "tuning",
+   "reason": "flow ratio: a calibration of this printer and filament"
+  },
+  "small_area_infill_flow_compensation_model": {
+   "class": "tuning",
+   "reason": "flow ratio: a calibration of this printer and filament"
+  },
+  "enable_wrapping_detection": {
+   "class": "tuning",
+   "reason": "Bambu-specific hardware detection"
+  },
+  "seam_slope_type": {
+   "class": "intent",
+   "reason": "walls and seams: how the surface looks"
+  },
+  "seam_slope_conditional": {
+   "class": "intent",
+   "reason": "walls and seams: how the surface looks"
+  },
+  "scarf_angle_threshold": {
+   "class": "intent",
+   "reason": "walls and seams: how the surface looks"
+  },
+  "scarf_joint_speed": {
+   "class": "tuning",
+   "reason": "speed: depends on the printer's motion and hotend"
+  },
+  "scarf_joint_flow_ratio": {
+   "class": "tuning",
+   "reason": "flow ratio: a calibration of this printer and filament"
+  },
+  "seam_slope_start_height": {
+   "class": "intent",
+   "reason": "walls and seams: how the surface looks"
+  },
+  "seam_slope_entire_loop": {
+   "class": "intent",
+   "reason": "walls and seams: how the surface looks"
+  },
+  "seam_slope_min_length": {
+   "class": "intent",
+   "reason": "walls and seams: how the surface looks"
+  },
+  "seam_slope_steps": {
+   "class": "intent",
+   "reason": "walls and seams: how the surface looks"
+  },
+  "seam_slope_inner_walls": {
+   "class": "intent",
+   "reason": "walls and seams: how the surface looks"
+  },
+  "scarf_overhang_threshold": {
+   "class": "intent",
+   "reason": "walls and seams: how the surface looks"
+  },
+  "interlocking_beam": {
+   "class": "intent",
+   "reason": "special modes the model is designed for",
+   "review": "multi-material bonding: intent, but only meaningful with #53"
+  },
+  "interlocking_orientation": {
+   "class": "intent",
+   "reason": "special modes the model is designed for"
+  },
+  "interlocking_beam_layer_count": {
+   "class": "intent",
+   "reason": "special modes the model is designed for"
+  },
+  "interlocking_depth": {
+   "class": "intent",
+   "reason": "special modes the model is designed for"
+  },
+  "interlocking_boundary_avoidance": {
+   "class": "intent",
+   "reason": "special modes the model is designed for"
+  },
+  "interlocking_beam_width": {
+   "class": "intent",
+   "reason": "special modes the model is designed for"
+  },
+  "calib_flowrate_topinfill_special_order": {
+   "class": "bookkeeping",
+   "reason": "managed by the plugin or Orca itself, never shared"
+  },
+  "zaa_enabled": {
+   "class": "intent",
+   "reason": "surface finish choices: ironing, fuzzy skin, smoothing",
+   "review": "Z anti-aliasing: a surface choice, new in Orca"
+  },
+  "zaa_minimize_perimeter_height": {
+   "class": "intent",
+   "reason": "surface finish choices: ironing, fuzzy skin, smoothing"
+  },
+  "zaa_dont_alternate_fill_direction": {
+   "class": "intent",
+   "reason": "surface finish choices: ironing, fuzzy skin, smoothing"
+  },
+  "zaa_min_z": {
+   "class": "intent",
+   "reason": "surface finish choices: ironing, fuzzy skin, smoothing"
+  },
+  "ironing_expansion": {
+   "class": "intent",
+   "reason": "surface finish choices: ironing, fuzzy skin, smoothing"
+  }
+ }
+}

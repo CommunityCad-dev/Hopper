@@ -1,0 +1,161 @@
+{
+ "printer": {
+  "max_velocity": 300.0,
+  "max_accel": 6000.0,
+  "minimum_cruise_ratio": 0.5,
+  "square_corner_velocity": 5.0,
+  "kinematics": "corexy",
+  "max_z_velocity": 15.0,
+  "max_z_accel": 350.0
+ },
+ "stepper_x": {
+  "microsteps": 32,
+  "position_endstop": 350.0,
+  "position_min": 0.0,
+  "position_max": 350.0,
+  "homing_speed": 25.0,
+  "second_homing_speed": 12.5,
+  "homing_retract_speed": 25.0,
+  "homing_retract_dist": 5.0,
+  "homing_positive_dir": true,
+  "rotation_distance": 40.0,
+  "full_steps_per_rotation": 200,
+  "gear_ratio": []
+ },
+ "stepper_y": {
+  "microsteps": 32,
+  "position_endstop": 350.0,
+  "position_min": 0.0,
+  "position_max": 350.0,
+  "homing_speed": 25.0,
+  "second_homing_speed": 12.5,
+  "homing_retract_speed": 25.0,
+  "homing_retract_dist": 5.0,
+  "homing_positive_dir": true,
+  "rotation_distance": 40.0,
+  "full_steps_per_rotation": 200,
+  "gear_ratio": []
+ },
+ "stepper_z": {
+  "microsteps": 32,
+  "position_min": -8.0,
+  "position_max": 250.0,
+  "homing_speed": 8.0,
+  "second_homing_speed": 3.0,
+  "homing_retract_speed": 8.0,
+  "homing_retract_dist": 3.0,
+  "homing_positive_dir": false,
+  "rotation_distance": 4.0,
+  "full_steps_per_rotation": 200,
+  "gear_ratio": []
+ },
+ "stepper_z1": {
+  "microsteps": 32,
+  "rotation_distance": 4.0,
+  "full_steps_per_rotation": 200,
+  "gear_ratio": []
+ },
+ "stepper_z2": {
+  "microsteps": 32,
+  "rotation_distance": 4.0,
+  "full_steps_per_rotation": 200,
+  "gear_ratio": []
+ },
+ "z_tilt": {
+  "z_positions": [
+   [
+    -50.0,
+    18.0
+   ],
+   [
+    175.0,
+    398.0
+   ],
+   [
+    400.0,
+    18.0
+   ]
+  ],
+  "retries": 5,
+  "retry_tolerance": 0.0075,
+  "points": [
+   [
+    30.0,
+    5.0
+   ],
+   [
+    175.0,
+    295.0
+   ],
+   [
+    320.0,
+    5.0
+   ]
+  ],
+  "horizontal_move_z": 10.0,
+  "speed": 200.0
+ },
+ "heater_bed": {
+  "sensor_type": "Generic 3950",
+  "pullup_resistor": 4700.0,
+  "inline_resistor": 0.0,
+  "min_temp": 0.0,
+  "max_temp": 130.0,
+  "min_extrude_temp": 170.0,
+  "max_power": 0.9,
+  "smooth_time": 1.0,
+  "control": "pid",
+  "pid_kp": 53.742,
+  "pid_ki": 2.437,
+  "pid_kd": 296.252,
+  "pwm_cycle_time": 0.1
+ },
+ "firmware_retraction": {
+  "retract_length": 0.35,
+  "retract_speed": 25.0,
+  "unretract_extra_length": 0.0,
+  "unretract_speed": 25.0
+ },
+ "input_shaper": {
+  "shaper_type": "mzv",
+  "shaper_type_x": "mzv",
+  "damping_ratio_x": 0.1,
+  "shaper_freq_x": 59.4,
+  "shaper_type_y": "mzv",
+  "damping_ratio_y": 0.1,
+  "shaper_freq_y": 41.6,
+  "shaper_type_z": "mzv",
+  "damping_ratio_z": 0.1,
+  "shaper_freq_z": 0.0
+ },
+ "temperature_sensor chamber": {
+  "sensor_type": "Generic 3950",
+  "pullup_resistor": 4700.0,
+  "inline_resistor": 0.0,
+  "min_temp": 0.0,
+  "max_temp": 100.0,
+  "gcode_id": "C"
+ },
+ "gcode_macro print_start": {
+  "gcode": "\n\n{% set target_bed = params.BED|int %}\n{% set target_extruder = params.EXTRUDER|int %}\n\n\n{% set target_chamber = params.CHAMBER|default(\"40\")|int %}\n\n{% set x_wait = printer.toolhead.axis_maximum.x|float / 2 %}\n{% set y_wait = printer.toolhead.axis_maximum.y|float / 2 %}\n\n\nSTATUS_HOMING\nG28\nG90\n\n\n\n\n\n{% if params.BED|int > 90 %}\nSET_DISPLAY_TEXT MSG=\"Bed: {target_bed}c\"\nSTATUS_HEATING\nM106 S255\n\n\nSET_FAN_SPEED FAN=Nevermore SPEED=1\n\nG1 X{x_wait} Y{y_wait} Z15 F9000\nM190 S{target_bed}\nSET_DISPLAY_TEXT MSG=\"Heatsoak: {target_chamber}c\"\n\n\n\n\n\n{% else %}\nSET_DISPLAY_TEXT MSG=\"Bed: {target_bed}c\"\nSTATUS_HEATING\nG1 X{x_wait} Y{y_wait} Z15 F9000\nM190 S{target_bed}\nSET_DISPLAY_TEXT MSG=\"Soak for 5min\"\nG4 P300000\n{% endif %}\n\n\nSET_DISPLAY_TEXT MSG=\"Hotend: 150c\"\n\nCLEAN_NOZZLE\nSET_DISPLAY_TEXT MSG=\"Clean Boi\"\n\n\nSET_DISPLAY_TEXT MSG=\"Z-tilt adjust\"\nSTATUS_LEVELING\nZ_TILT_ADJUST\nG28 Z\n\n\n\n\n\n\n\n\n\n\n\n\nSET_DISPLAY_TEXT MSG=\"Bed mesh\"\nSTATUS_MESHING\nbed_mesh_calibrate\n\n\nSET_DISPLAY_TEXT MSG=\"Hotend: {target_extruder}c\"\nSTATUS_HEATING\nG1 X{x_wait} Y{y_wait} Z15 F9000\nM107\nM109 S{target_extruder}\n\n\n\nSET_DISPLAY_TEXT MSG=\"Printer goes brr\"\nSTATUS_PRINTING\nLINE_PURGE",
+  "description": "G-Code macro"
+ },
+ "gcode_macro print_end": {
+  "gcode": "\n\n{% set th = printer.toolhead %}\n{% set x_safe = th.position.x + 20 * (1 if th.axis_maximum.x - th.position.x > 20 else -1) %}\n{% set y_safe = th.position.y + 20 * (1 if th.axis_maximum.y - th.position.y > 20 else -1) %}\n{% set z_safe = [th.position.z + 2, th.axis_maximum.z]|min %}\n\nSAVE_GCODE_STATE NAME=STATE_PRINT_END\n\nM400\nG92 E0\nG1 E-2.0 F3600\n\nTURN_OFF_HEATERS\n\nG90\nG0 X{x_safe} Y{y_safe} Z{z_safe} F20000\nG0 X{th.axis_maximum.x//2} Y{th.axis_maximum.y - 2} F3600\nM107\n\nSET_FAN_SPEED FAN=Nevermore SPEED=0\nBED_MESH_CLEAR\nRESTORE_GCODE_STATE NAME=STATE_PRINT_END",
+  "description": "G-Code macro"
+ },
+ "extruder": {
+  "nozzle_diameter": 0.4,
+  "filament_diameter": 1.75,
+  "max_temp": 280.0,
+  "pressure_advance": 0.0355,
+  "rotation_distance": 23.2556,
+  "gear_ratio": [
+   [
+    50.0,
+    10.0
+   ]
+  ],
+  "sensor_type": "ATC Semitec 104NT-4-R025H42G"
+ }
+}
