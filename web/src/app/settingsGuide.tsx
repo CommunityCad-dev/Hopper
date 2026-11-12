@@ -11,7 +11,7 @@ import { Icon } from './icons';
  * Help for the material and print profile editors: a Simple view of the
  * settings people change, an Advanced view of all of them, icons and one-line
  * descriptions for Orca's groups, and short tooltips. The wording is ours, short
- * and plain; Orca's own tooltip text isn't copied (it's AGPL, the plugin Apache-2.0).
+ * and plain; Orca's own tooltip text isn't copied (it's AGPL; the plugin is GPL).
  */
 
 export type EditorView = 'simple' | 'advanced';

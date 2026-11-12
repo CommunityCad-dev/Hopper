@@ -59,4 +59,4 @@ These keep the plugin safe to install on someone's printer:
 - A plugin error must never affect Moonraker, the interface or a running print.
 - Comments explain why, in plain words. Keep interface text short and plain.
 
-Contributions are licensed under Apache-2.0, as the rest of the plugin.
+Contributions are licensed under GPL-3.0-or-later, as the rest of the plugin.

@@ -16,7 +16,7 @@
   <img src="https://img.shields.io/badge/runs%20on-Klipper%20%2B%20Moonraker-0B47A1" alt="Runs on Klipper and Moonraker">
   <img src="https://img.shields.io/badge/Mainsail-%E2%9C%93-0B47A1" alt="Works with Mainsail">
   <img src="https://img.shields.io/badge/Fluidd-%E2%9C%93-0B47A1" alt="Works with Fluidd">
-  <img src="https://img.shields.io/badge/licence-Apache--2.0-555" alt="Licence: Apache-2.0">
+  <img src="https://img.shields.io/badge/licence-GPL--3.0-555" alt="Licence: GPL-3.0">
 </p>
 
 <p align="center">
@@ -115,7 +115,7 @@ removes just the slicer.
 
 ## Use at your own risk
 
-This plugin comes with no warranty (see [LICENSE](LICENSE), sections 7 and 8).
+This plugin comes with no warranty (see [LICENSE](LICENSE), sections 15 and 16).
 
 - Models and G-code on CommunityCAD are made by other people. CommunityCAD doesn't check
   them for safety, and a file made for another printer can damage yours.
@@ -176,7 +176,8 @@ they're handled and how to run the tests.
 
 ## Licence
 
-Apache-2.0. See [LICENSE](LICENSE) and [NOTICE](NOTICE).
+GPL-3.0-or-later: you can use, change and share Hopper, and changed versions you share
+must stay open under the same licence. See [LICENSE](LICENSE) and [NOTICE](NOTICE).
 
 The licence covers this plugin only. CommunityCAD itself is a separate, closed-source
 platform; using its API is governed by the CommunityCAD API terms.

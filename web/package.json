@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "description": "Injected CommunityCAD browser for Mainsail and Fluidd",
-  "license": "Apache-2.0",
+  "license": "GPL-3.0-or-later",
   "type": "module",
   "scripts": {
     "typecheck": "tsc --noEmit",

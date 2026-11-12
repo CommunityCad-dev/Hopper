@@ -1,13 +1,15 @@
 Hopper for Klipper, by CommunityCAD
 Copyright 2026 CommunityCAD
 
-This product includes software developed for CommunityCAD (https://communitycad.dev).
+This program is free software: you can redistribute it and/or modify it under the
+terms of the GNU General Public License as published by the Free Software
+Foundation, either version 3 of the License, or (at your option) any later version.
+It is distributed WITHOUT ANY WARRANTY; see the LICENSE file for details.
 
-Licensed under the Apache License, Version 2.0. See the LICENSE file.
-
-This license applies to this plugin only. It grants no rights to the CommunityCAD
+The license applies to this plugin only. It grants no rights to the CommunityCAD
 name, logo or other brand assets, and no rights to the CommunityCAD platform, which
 is a separate, closed-source product. Use of the CommunityCAD API is governed by the
 CommunityCAD API terms, not by this license.
 
-Forks and redistributions must keep this NOTICE file.
+Hopper bundles third-party code under its own GPL-compatible licenses, among them
+Preact (MIT) and Material Design Icons (Apache-2.0).
