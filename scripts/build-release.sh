@@ -40,6 +40,8 @@ rm -f "$ROOT/web/dist/"*.map
 # The release builds nothing on the printer, so neither its build script nor the
 # bundle-budget gate that only runs at build time belong in it.
 rm -f "$ROOT/scripts/build-release.sh" "$ROOT/scripts/check-bundle.mjs"
+# The one-command installer is its own release asset (below), not part of the zip.
+rm -f "$ROOT/scripts/web-install.sh"
 # Compiled Python is per-interpreter and would be stale the moment it shipped.
 find "$ROOT" -name '__pycache__' -type d -prune -exec rm -rf {} + 2>/dev/null || true
 find "$ROOT" -name '*.pyc' -delete 2>/dev/null || true
@@ -62,5 +64,11 @@ rm -f "$OUT/$ASSET"
 mv "$STAGE/$ASSET" "$OUT/$ASSET"
 
 echo "wrote $OUT/$ASSET ($(du -h "$OUT/$ASSET" | cut -f1))"
+
+# The one-command installer, attached to the release as install.sh. It downloads this
+# version's zip, so the script and the zip it unpacks always match.
+sed "s/__HOPPER_VERSION__/${VERSION#v}/" scripts/web-install.sh >"$OUT/install.sh"
+grep -q "local version=\"${VERSION#v}\"" "$OUT/install.sh" || { echo "install.sh: version not stamped"; exit 1; }
+echo "wrote $OUT/install.sh (version ${VERSION#v})"
 echo "contents:"
 unzip -l "$OUT/$ASSET" | awk 'NR>3 && NF>3 {print "  " $4}' | head -20

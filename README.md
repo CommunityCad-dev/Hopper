@@ -68,7 +68,19 @@ embed or autoplay them, so show a short looping GIF or WebP that links to the vi
 
 ## Install
 
-On the printer's Raspberry Pi, over SSH, download the latest release and run the installer:
+On the printer's Raspberry Pi, over SSH, as your normal user (not root):
+
+```bash
+bash <(curl -fsSL https://github.com/CommunityCad-dev/Hopper/releases/latest/download/install.sh)
+```
+
+That downloads the latest release into `~/hopper` and runs `scripts/install-all.sh`.
+It needs only `curl` and `python3`, which every Klipper Pi already has.
+
+<details>
+<summary>Rather read it before you run it?</summary>
+
+Download the release, look through it, then run the installer yourself:
 
 ```bash
 cd ~ && wget https://github.com/CommunityCad-dev/Hopper/releases/latest/download/hopper.zip
@@ -76,10 +88,14 @@ unzip hopper.zip -d hopper && cd hopper
 scripts/install-all.sh
 ```
 
-Use the release download, not a `git clone`: a checkout of the source has no built
-interface (that's made at release time), and the installer's check says so.
+The one-line installer is [`scripts/web-install.sh`](scripts/web-install.sh), attached to
+each release as `install.sh`.
+</details>
 
-That installs Hopper **and** slicing on the printer (OrcaSlicer, run headless on the
+Use a release, not a `git clone`: a checkout of the source has no built interface
+(that's made at release time), and the installer's check says so.
+
+The installer sets up Hopper **and** slicing on the printer (OrcaSlicer, run headless on the
 Pi), so you can pick a model on your phone, slice it with your own profiles and print it,
 with no PC. It checks your device first and changes nothing until you've seen the result:
 
@@ -95,7 +111,8 @@ Slicing on the printer (OrcaSlicer 2.4.2):
   ...
 ```
 
-`scripts/install-all.sh --check` runs only the check. If your device can run Hopper
+`scripts/install-all.sh --check` runs only the check (or, before downloading anything
+by hand, `bash <(curl -fsSL https://github.com/CommunityCad-dev/Hopper/releases/latest/download/install.sh) --check`). If your device can run Hopper
 but not the slicer, it says why and offers Hopper on its own.
 
 **What slicing on the printer needs:** 64-bit Raspberry Pi OS (OrcaSlicer has no 32-bit

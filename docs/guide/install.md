@@ -13,11 +13,30 @@
 
 ## Install
 
+On the printer's host, over SSH, as your normal user (not root):
+
+```bash
+bash <(curl -fsSL https://github.com/CommunityCad-dev/Hopper/releases/latest/download/install.sh)
+```
+
+That downloads the latest release into `~/hopper` and runs `scripts/install-all.sh` from
+it. It needs `curl` (or `wget`) and `python3`, which a Klipper host already has; `unzip`
+isn't needed. Running it again later reinstalls the latest release over the old one.
+
+Add `--check` to the end to run only the device check. If you pipe it instead
+(`curl -fsSL …/install.sh | bash`), pass arguments with `bash -s -- --check`.
+
+To read everything before running it, download and unpack the release yourself:
+
 ```bash
 cd ~ && wget https://github.com/CommunityCad-dev/Hopper/releases/latest/download/hopper.zip
 unzip hopper.zip -d hopper && cd hopper
 scripts/install-all.sh
 ```
+
+If `~/hopper` already holds something that isn't a Hopper release (a git checkout, or
+another folder), the one-line installer stops and changes nothing. Set `HOPPER_DIR` to
+install somewhere else.
 
 The installer checks your device first and shows the result before changing
 anything. It then shows the use-at-your-own-risk notice and asks before it goes on.

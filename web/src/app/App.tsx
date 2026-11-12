@@ -132,7 +132,7 @@ export function App({ version, hostName }: AppProps) {
           <p class="sub">
             Each printer needs its own install. On that printer's host, run:
           </p>
-          <pre class="cmd">{`cd ~ && wget ${REPO}/releases/latest/download/hopper.zip\nunzip hopper.zip -d hopper && cd hopper\nscripts/install-all.sh`}</pre>
+          <pre class="cmd">{`bash <(curl -fsSL ${REPO}/releases/latest/download/install.sh)`}</pre>
           <button class="btn" type="button" onClick={refresh}>Retry</button>
         </div>
       </div>
