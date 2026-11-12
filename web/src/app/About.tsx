@@ -1,11 +1,13 @@
 import { useState } from 'preact/hooks';
 
+import { HOPPER_GLYPH } from '../brand';
 import { ICONS, Icon } from './icons';
+import { Logo } from './Logo';
 import type { Status } from './types';
 
 /** Where the plugin lives. One place, so the move to the CommunityCAD org is a one-line change. */
 /** The public repo: docs, releases and the issue tracker. The one place it's named in the UI. */
-export const REPO = 'https://github.com/CommunityCad-dev/communitycad-klipper';
+export const REPO = 'https://github.com/CommunityCad-dev/Hopper';
 
 /**
  * Where the plugin is. Written by hand at each release, not fetched: the About
@@ -69,8 +71,13 @@ export function About({ status, version, hostName }: { status: Status; version: 
   return (
     <div class="about-grid">
       <section class="panel settings-card" aria-label="About">
-        <div class="panel-head"><Icon path={ICONS.cube} /><span>CommunityCAD for Klipper</span></div>
+        <div class="panel-head"><Icon path={HOPPER_GLYPH} /><span>About</span></div>
         <div class="settings-body about">
+          <div class="about-brand">
+            <Logo height={44} />
+            <p class="about-tagline">Discover, slice, print.</p>
+            <p class="sub">Hopper for Klipper, Mainsail and Fluidd. By CommunityCAD.</p>
+          </div>
           <p>
             Find a model on CommunityCAD, slice it on your printer, print it, and share how it went. All from
             Mainsail or Fluidd, from your phone, with your own printer's settings.

@@ -123,6 +123,9 @@ a{color:var(--ccad-accent);text-decoration:none}
 .settings-body{padding:14px 16px;display:grid;gap:16px}
 .settings-body .field input:not([type=checkbox]){max-width:100%}
 .about p{margin:0;line-height:1.6}
+.about-brand{display:flex;flex-direction:column;align-items:flex-start;gap:6px}
+.about-brand .logo{display:block;width:auto;max-width:100%;margin-bottom:6px}
+.about-tagline{font-size:17px;font-weight:600}
 .about-grid > .settings-card{display:flex;flex-direction:column}
 .about-grid .settings-body{flex:1 1 auto;align-content:start}
 .settings-body.about{display:flex;flex-direction:column;gap:22px}

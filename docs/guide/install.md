@@ -14,8 +14,8 @@
 ## Install
 
 ```bash
-cd ~ && wget https://github.com/CommunityCad-dev/communitycad-klipper/releases/latest/download/communitycad-klipper.zip
-unzip communitycad-klipper.zip && cd communitycad-klipper
+cd ~ && wget https://github.com/CommunityCad-dev/Hopper/releases/latest/download/hopper.zip
+unzip hopper.zip -d hopper && cd hopper
 scripts/install-all.sh
 ```
 
@@ -27,13 +27,13 @@ Use the release download rather than a `git clone`: the source has no built inte
 
 | Script | Installs |
 |---|---|
-| `scripts/install-all.sh` | CommunityCAD and slicing on the printer. **Start here.** |
-| `scripts/install.sh` | CommunityCAD only: browse, send G-code made elsewhere, share |
+| `scripts/install-all.sh` | Hopper and slicing on the printer. **Start here.** |
+| `scripts/install.sh` | Hopper only: browse, send G-code made elsewhere, share |
 | `scripts/install-orca.sh` | Slicing, added to an existing install |
 
 ## Link your account
 
-Open your printer's page (Mainsail or Fluidd) and find **CommunityCAD** in the menu.
+Open your printer's page (Mainsail or Fluidd) and find **Hopper** in the menu.
 Choose **Connect**: the plugin shows a short code. Approve it on communitycad.dev from
 your phone or computer. Nothing is typed on the printer, and the link can be removed
 from your CommunityCAD account at any time.
@@ -46,7 +46,7 @@ Mainsail or Fluidd's update panel next to Klipper and Moonraker, and update the 
 ## Uninstall
 
 ```bash
-cd ~/communitycad-klipper
+cd ~/hopper
 scripts/uninstall.sh                # everything install.sh added
 scripts/install-orca.sh --remove    # just the slicer
 ```

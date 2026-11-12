@@ -1,48 +1,90 @@
-# CommunityCAD for Klipper
+<p align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="docs/media/hopper-logo-dark.svg">
+    <img src="docs/media/hopper-logo-light.svg" alt="Hopper" width="440">
+  </picture>
+</p>
+
+<h3 align="center">Discover, slice, print.</h3>
+
+<p align="center">
+  Hopper for Klipper, Mainsail and Fluidd. By <a href="https://communitycad.dev">CommunityCAD</a>.
+</p>
+
+<p align="center">
+  <img src="https://img.shields.io/badge/status-beta-3B82F6" alt="Status: beta">
+  <img src="https://img.shields.io/badge/runs%20on-Klipper%20%2B%20Moonraker-0B47A1" alt="Runs on Klipper and Moonraker">
+  <img src="https://img.shields.io/badge/Mainsail-%E2%9C%93-0B47A1" alt="Works with Mainsail">
+  <img src="https://img.shields.io/badge/Fluidd-%E2%9C%93-0B47A1" alt="Works with Fluidd">
+  <img src="https://img.shields.io/badge/licence-Apache--2.0-555" alt="Licence: Apache-2.0">
+</p>
+
+<p align="center">
+  <a href="#install"><b>Install</b></a> ·
+  <a href="docs/guide/how-it-works.md">How it works</a> ·
+  <a href="docs/guide/troubleshooting.md">Troubleshooting</a> ·
+  <a href="CONTRIBUTING.md">Contributing</a>
+</p>
+
+---
 
 Browse [CommunityCAD](https://communitycad.dev) models from inside Mainsail or Fluidd,
-send them to your printer, and share the result back — from your phone, without a PC.
+slice them on the printer with your own profiles, print, and share the result back. From
+your phone, without a PC.
 
-The plugin adds its own view to your printer interface. It does not fork or modify
-Mainsail or Fluidd: an nginx `sub_filter` adds one `<script>` tag, and everything the
-plugin does happens inside that script and a Moonraker component. Uninstalling returns
-the interface to stock, byte for byte.
+## What it does
+
+- **Discover.** Browse and search CommunityCAD models, with a "fits your printer" check
+  against your build volume.
+- **Slice.** Slice on the printer with OrcaSlicer, using your own material and print
+  profiles. No PC needed.
+- **Print.** Send a model or G-code to the printer, and start it after a confirm that checks
+  the file was made for this printer and that the right material is loaded.
+- **Share.** After a print, share its print profile and a post with a photo, publicly or
+  kept private.
+
+**Nothing in your printer's interface is changed.** Hopper doesn't fork or modify Mainsail
+or Fluidd: nginx adds one `<script>` tag, and everything Hopper does happens inside that
+script and a Moonraker component. Uninstalling returns the interface to stock, byte for byte.
 
 **Status: beta**, with invited testers. Things will change, and feedback is very welcome.
 
-What you can do with it:
+<!--
+Screenshots and demo. Images live in docs/media/. Videos are on YouTube: GitHub can't
+embed or autoplay them, so show a short looping GIF or WebP that links to the video:
 
-- **Browse and search** CommunityCAD models, with a "fits your printer" check against
-  your build volume.
-- **Send** a model or G-code to the printer, and start it after a confirm that checks the
-  file was made for this printer and that the right material is loaded.
-- **Slice on the printer** with OrcaSlicer, using your own material and print profiles,
-  then print. No PC needed.
-- **Share back**: after a print, share its print profile and a post with a photo, publicly
-  or kept private.
+## Demo
 
-Guides: [install](docs/guide/install.md) · [how it works](docs/guide/how-it-works.md) ·
-[troubleshooting](docs/guide/troubleshooting.md) · [contributing](CONTRIBUTING.md)
+[![Hopper demo](docs/media/demo.gif)](https://www.youtube.com/watch?v=VIDEO_ID)
+
+## Screenshots
+
+<p>
+  <img src="docs/media/browse.png" width="270" alt="Browse">
+  <img src="docs/media/model.png" width="270" alt="A model page">
+  <img src="docs/media/print.png" width="270" alt="Print confirm">
+</p>
+-->
 
 ## Install
 
 On the printer's Raspberry Pi, over SSH, download the latest release and run the installer:
 
 ```bash
-cd ~ && wget https://github.com/CommunityCad-dev/communitycad-klipper/releases/latest/download/communitycad-klipper.zip
-unzip communitycad-klipper.zip && cd communitycad-klipper
+cd ~ && wget https://github.com/CommunityCad-dev/Hopper/releases/latest/download/hopper.zip
+unzip hopper.zip -d hopper && cd hopper
 scripts/install-all.sh
 ```
 
 Use the release download, not a `git clone`: a checkout of the source has no built
 interface (that's made at release time), and the installer's check says so.
 
-That installs CommunityCAD **and** slicing on the printer (OrcaSlicer, run headless on the
+That installs Hopper **and** slicing on the printer (OrcaSlicer, run headless on the
 Pi), so you can pick a model on your phone, slice it with your own profiles and print it,
 with no PC. It checks your device first and changes nothing until you've seen the result:
 
 ```
-CommunityCAD:
+Hopper:
   ✓ nginx with sub_filter
   ✓ mainsail site: /etc/nginx/sites-available/mainsail
   ✓ Moonraker: 1 instance(s)
@@ -53,8 +95,8 @@ Slicing on the printer (OrcaSlicer 2.4.2):
   ...
 ```
 
-`scripts/install-all.sh --check` runs only the check. If your device can run CommunityCAD
-but not the slicer, it says why and offers CommunityCAD on its own.
+`scripts/install-all.sh --check` runs only the check. If your device can run Hopper
+but not the slicer, it says why and offers Hopper on its own.
 
 **What slicing on the printer needs:** 64-bit Raspberry Pi OS (OrcaSlicer has no 32-bit
 build), about 700 MB free, and 2 GB of memory or more (1 GB slices small models only).
@@ -64,8 +106,8 @@ Tested on a Pi 4 with Debian 13 (trixie).
 
 | Script | Installs | Needs sudo for |
 |---|---|---|
-| `scripts/install-all.sh` | CommunityCAD and slicing on the printer, after a compatibility check. **Start here.** | nginx, and OrcaSlicer's libraries |
-| `scripts/install.sh` | CommunityCAD only: browse, send G-code made elsewhere, share | nginx |
+| `scripts/install-all.sh` | Hopper and slicing on the printer, after a compatibility check. **Start here.** | nginx, and OrcaSlicer's libraries |
+| `scripts/install.sh` | Hopper only: browse, send G-code made elsewhere, share | nginx |
 | `scripts/install-orca.sh` | Slicing on the printer, added to an existing install | OrcaSlicer's libraries |
 
 `scripts/uninstall.sh` removes everything the first two add; `scripts/install-orca.sh --remove`

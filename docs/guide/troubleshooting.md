@@ -3,20 +3,20 @@
 **Check the install first.** On the printer:
 
 ```bash
-~/communitycad-klipper/scripts/healthcheck.sh
+~/hopper/scripts/healthcheck.sh
 ```
 
 It checks the nginx injection, the Moonraker component and that the served interface is
 the current one, and says what to fix.
 
-## CommunityCAD is missing from the menu
+## Hopper is missing from the menu
 
 Reinstalling or repairing Mainsail or Fluidd (with KIAUH, for example) replaces the web
 server's configuration and removes the plugin's script tag. Printing isn't affected. Run
 the installer again:
 
 ```bash
-cd ~/communitycad-klipper && scripts/install.sh
+cd ~/hopper && scripts/install.sh
 ```
 
 Then reload the page.
@@ -45,4 +45,4 @@ The plugin writes to Moonraker's log:
 grep -i communitycad ~/printer_data/logs/moonraker.log | tail -50
 ```
 
-Include those lines when you [open an issue](https://github.com/CommunityCad-dev/communitycad-klipper/issues/new/choose).
+Include those lines when you [open an issue](https://github.com/CommunityCad-dev/Hopper/issues/new/choose).

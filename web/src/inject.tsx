@@ -206,7 +206,7 @@ function mountFallbackButton(adapter: HostAdapter): void {
   const shadow = host.attachShadow({ mode: 'open' });
   shadow.innerHTML =
     '<style>button{font:600 13px system-ui,sans-serif;padding:8px 14px;border-radius:18px;' +
-    'border:0;background:#2b6cb0;color:#fff;cursor:pointer}</style><button>CommunityCAD</button>';
+    'border:0;background:#2b6cb0;color:#fff;cursor:pointer}</style><button>Hopper</button>';
   shadow.querySelector('button')?.addEventListener(
     'click',
     guard(() => (state.active ? deactivate(adapter) : activate(adapter))),

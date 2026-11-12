@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Remove the CommunityCAD injection. Idempotent. Backs up every nginx file it changes or
+# Remove the Hopper injection. Idempotent. Backs up every nginx file it changes or
 # removes to $CCAD_HOME/backups, then checks the served page is byte-identical to Mainsail's.
 source "$(dirname "${BASH_SOURCE[0]}")/common.sh"
 source "$(dirname "${BASH_SOURCE[0]}")/moonraker.sh"

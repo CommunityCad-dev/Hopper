@@ -27,7 +27,7 @@ export function Notice({ version, onDone }: { version: string; onDone: () => voi
 
   return (
     <div class="panel notice">
-      <div class="panel-head"><span>Before you use CommunityCAD on this printer</span></div>
+      <div class="panel-head"><span>Before you use Hopper on this printer</span></div>
       <div class="slice-body">
         <p><strong>This plugin comes with no warranty. Use it at your own risk.</strong></p>
         <ul>

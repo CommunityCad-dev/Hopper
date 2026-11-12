@@ -64,7 +64,7 @@ else
     mv "$work/squashfs-root" "$ORCA_DIR"
     cat >"$ORCA_DIR/run-orca" <<EOF
 #!/bin/bash
-# Headless OrcaSlicer $ORCA_VERSION, as the CommunityCAD component calls it.
+# Headless OrcaSlicer $ORCA_VERSION, as the Hopper component calls it.
 # LC_ALL=C: Orca segfaults on some locales (its own AppRun sets the same).
 export LC_ALL=C
 export LD_LIBRARY_PATH="$ORCA_DIR/lib/orca-runtime:$ORCA_DIR/bin\${LD_LIBRARY_PATH:+:\$LD_LIBRARY_PATH}"

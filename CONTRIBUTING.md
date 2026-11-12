@@ -1,6 +1,6 @@
 # Contributing
 
-Thanks for helping. CommunityCAD for Klipper is in beta, so bug reports from real
+Thanks for helping. Hopper for Klipper is in beta, so bug reports from real
 printers are the most useful thing you can send.
 
 ## Issues

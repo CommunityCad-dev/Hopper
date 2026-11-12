@@ -1,4 +1,4 @@
-# CommunityCAD plugin for Klipper — Moonraker component.
+# Hopper for Klipper — Moonraker component.
 #
 # The Pi-side half of the plugin. The injected browser UI talks only to this
 # component; this component makes every CommunityCAD API call. So the token never
@@ -37,7 +37,7 @@ if TYPE_CHECKING:
 
 COMPONENT_VERSION = "0.1.0-dev"
 CLIENT_NAME = "communitycad-klipper"
-PLUGIN_REPO = "https://github.com/CommunityCad-dev/communitycad-klipper"   # the public repo: docs, releases, issues
+PLUGIN_REPO = "https://github.com/CommunityCad-dev/Hopper"   # the public repo: docs, releases, issues
 
 # Production. Development points this at a local backend.
 DEFAULT_API_BASE = "https://communitycad.dev/api/v1"
@@ -192,7 +192,7 @@ PROCESS_SETTINGS: Dict[str, Dict[str, Any]] = {
 # again when this version changes. Sending, saving from the catalog and starting
 # prints check it here, so a modified browser can't skip it.
 NOTICE_VERSION = "2026-10-03"
-NOTICE_REQUIRED = "Read and accept the notice in CommunityCAD on this printer first."
+NOTICE_REQUIRED = "Read and accept the notice in Hopper on this printer first."
 # Orca's bed models and textures are tens of KB; anything far larger isn't one.
 BED_FILE_MAX = 4 << 20
 # Orca's built-in values for keys a preset leaves unset.
@@ -4532,7 +4532,7 @@ def gcode_summary(path: pathlib.Path) -> Dict[str, Any]:
 MATERIALS_FILE = "materials.cfg"
 MATERIAL_NAME = re.compile(r"^[A-Za-z0-9][A-Za-z0-9 _.+()@/&#-]{0,63}$")
 MATERIALS_HEADER = """\
-# Materials for the CommunityCAD plugin's slicer. Not a Klipper file: nothing
+# Materials for Hopper's slicer. Not a Klipper file: nothing
 # [include]s it, and Klipper never reads it.
 #
 # Each [material <name>] is one OrcaSlicer filament preset. `inherits` names the
@@ -4557,7 +4557,7 @@ PROFILES_FILE = "print_profiles.cfg"
 PROFILE_BLOCKED = frozenset({"post_process", "filename_format", "compatible_printers",
                              "compatible_printers_condition", "inherits", "print_settings_id"})
 PROFILES_HEADER = """\
-# Print profiles for the CommunityCAD plugin's slicer. Not a Klipper file: nothing
+# Print profiles for Hopper's slicer. Not a Klipper file: nothing
 # [include]s it, and Klipper never reads it.
 #
 # Each [profile <name>] is one OrcaSlicer process preset. `inherits` names the Orca

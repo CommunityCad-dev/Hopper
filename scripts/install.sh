@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Inject the CommunityCAD script into Mainsail via nginx sub_filter.
+# Inject the Hopper script into Mainsail via nginx sub_filter.
 # Idempotent: re-running changes nothing if already installed (the web files are refreshed).
 # Never touches Mainsail's own files. Backs up every nginx file it changes to $CCAD_HOME/backups.
 source "$(dirname "${BASH_SOURCE[0]}")/common.sh"
@@ -24,7 +24,7 @@ done
 # --- the notice: before anything is changed ----------------------------------------
 cat <<'NOTICE'
 
-CommunityCAD for Klipper comes with no warranty. Use it at your own risk.
+Hopper for Klipper comes with no warranty. Use it at your own risk.
 
 - Models and G-code on CommunityCAD are made by other people. CommunityCAD does not
   check them for safety, and a file made for another printer can damage yours.

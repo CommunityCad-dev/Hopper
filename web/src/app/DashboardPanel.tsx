@@ -28,7 +28,7 @@ export function DashboardPanel({ status, onRefresh, onOpenBrowser }: Props) {
   return (
     <div class="panelwrap">
       <div class="panelhead">
-        <span class="panelname">CommunityCAD</span>
+        <span class="panelname">Hopper</span>
         {status.linked && status.account?.username && (
           <span class="sub">{status.account.username}</span>
         )}

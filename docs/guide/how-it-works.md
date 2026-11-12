@@ -4,7 +4,7 @@
 Phone, tablet or PC browser
   └─ Mainsail or Fluidd page
        └─ <script src="/communitycad/inject.js">   (added by nginx)
-            └─ the CommunityCAD view, in its own Shadow DOM
+            └─ the Hopper view, in its own Shadow DOM
                  │  same-origin calls only
                  ▼
 Printer host: Moonraker

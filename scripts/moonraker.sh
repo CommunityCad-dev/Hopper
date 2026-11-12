@@ -12,7 +12,7 @@
 component_link_path() { printf '%s/moonraker/components/communitycad.py' "$MOONRAKER_SRC"; }
 
 # Where updates come from: GitHub releases, installed by Moonraker's `type: zip`.
-CCAD_REPO="${CCAD_REPO:-CommunityCad-dev/communitycad-klipper}"
+CCAD_REPO="${CCAD_REPO:-CommunityCad-dev/Hopper}"
 
 # Is this a release install, or a git checkout someone is developing in?
 #
@@ -27,7 +27,7 @@ moonraker_section() {
     printf '%s\n' "$MARK_BEGIN" "[communitycad]" "# api_base: https://communitycad.dev/api/v1" ""
     if is_release_install; then
         printf '%s\n' \
-            "[update_manager communitycad]" \
+            "[update_manager hopper]" \
             "type: zip" \
             "channel: stable" \
             "repo: $CCAD_REPO" \
@@ -35,7 +35,7 @@ moonraker_section() {
             "managed_services: moonraker"
     else
         printf '%s\n' \
-            "# No [update_manager communitycad] here: this is a git checkout, and" \
+            "# No [update_manager hopper] here: this is a git checkout, and" \
             "# Moonraker's zip updater will not manage a path inside a repo. Update" \
             "# it with git pull, then re-run scripts/install.sh."
     fi

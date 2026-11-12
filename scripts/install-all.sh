@@ -1,19 +1,19 @@
 #!/usr/bin/env bash
-# Install CommunityCAD for Klipper with slicing on the printer: the plugin, then
+# Install Hopper for Klipper with slicing on the printer: the plugin, then
 # OrcaSlicer. The way to install for most people.
 #
 # It checks this device first and changes nothing until you've seen the result:
-#   - CommunityCAD needs nginx with sub_filter, a Mainsail or Fluidd site, and Moonraker.
+#   - Hopper needs nginx with sub_filter, a Mainsail or Fluidd site, and Moonraker.
 #   - Slicing on the printer also needs a 64-bit OS, OrcaSlicer's libraries from apt,
 #     enough memory and disk, and GitHub for the download.
-# If only slicing can't be installed, it says why and offers CommunityCAD on its own.
+# If only slicing can't be installed, it says why and offers Hopper on its own.
 #
 #   scripts/install-all.sh            check, then install both (asks before changing anything)
 #   scripts/install-all.sh --check    check only; changes nothing
 #   scripts/install-all.sh --accept   agree to the notice without being asked (scripted installs)
-#   scripts/install-all.sh --no-orca  CommunityCAD only: the same as scripts/install.sh
+#   scripts/install-all.sh --no-orca  Hopper only: the same as scripts/install.sh
 #
-# The two parts on their own: scripts/install.sh (CommunityCAD) and scripts/install-orca.sh
+# The two parts on their own: scripts/install.sh (Hopper) and scripts/install-orca.sh
 # (slicing on the printer, added later). scripts/uninstall.sh removes both.
 set -uo pipefail
 HERE="$(dirname "${BASH_SOURCE[0]}")"
@@ -52,7 +52,7 @@ row() {   # row <✓|⚠|✗> <text>
 echo
 echo "Checking this device"
 echo
-echo "CommunityCAD:"
+echo "Hopper:"
 if command -v "$NGINX_BIN" >/dev/null; then
     # nginx -V needs no root; nginx -T (the site search) usually does. In --check, never
     # wait on a sudo password: say so, and the install itself checks again.
@@ -141,15 +141,15 @@ fi
 
 echo
 if [[ $plugin_ok -eq 0 ]]; then
-    echo "CommunityCAD can't be installed on this device yet: see the ✗ above. Nothing was changed."
+    echo "Hopper can't be installed on this device yet: see the ✗ above. Nothing was changed."
     exit 1
 fi
 if [[ $NO_ORCA -eq 1 ]]; then
-    plan="CommunityCAD only (--no-orca)"
+    plan="Hopper only (--no-orca)"
 elif [[ $orca_ok -eq 1 ]]; then
-    plan="CommunityCAD and slicing on the printer"
+    plan="Hopper and slicing on the printer"
 else
-    plan="CommunityCAD only: slicing on the printer can't be installed here (see the ✗ above)"
+    plan="Hopper only: slicing on the printer can't be installed here (see the ✗ above)"
 fi
 echo "Result: $plan."
 if [[ $CHECK_ONLY -eq 1 ]]; then
@@ -161,11 +161,11 @@ if [[ $NO_ORCA -eq 0 && $orca_ok -eq 0 ]]; then
     echo "Without it you can browse, send G-code made elsewhere and share; slicing needs a"
     echo "compatible device, or install it later with scripts/install-orca.sh."
     if [[ $ACCEPTED -ne 1 ]]; then
-        [[ -t 0 ]] || die "not confirmed. Run it in a terminal, or pass --accept to install CommunityCAD without slicing. Nothing was changed."
-        read -r -p "Install CommunityCAD without slicing on the printer? [y/N] " answer
+        [[ -t 0 ]] || die "not confirmed. Run it in a terminal, or pass --accept to install Hopper without slicing. Nothing was changed."
+        read -r -p "Install Hopper without slicing on the printer? [y/N] " answer
         [[ "$answer" == "y" || "$answer" == "Y" ]] || die "not installed. Nothing was changed."
     else
-        log "--accept: installing CommunityCAD without slicing on the printer"
+        log "--accept: installing Hopper without slicing on the printer"
     fi
     NO_ORCA=1
 fi
@@ -175,9 +175,9 @@ set -e
 if [[ $NO_ORCA -eq 0 ]]; then
     echo
     log "now slicing on the printer: OrcaSlicer (sudo for its libraries; about 135 MB to download)"
-    "$HERE/install-orca.sh" || die "CommunityCAD is installed, but OrcaSlicer didn't finish (see above). Run scripts/install-orca.sh to try again; everything else works meanwhile."
+    "$HERE/install-orca.sh" || die "Hopper is installed, but OrcaSlicer didn't finish (see above). Run scripts/install-orca.sh to try again; everything else works meanwhile."
 fi
 echo
-log "done. Open your printer's page and choose CommunityCAD."
+log "done. Open your printer's page and choose Hopper."
 [[ ${#orca_warn[@]} -gt 0 ]] && log "note: this device has ${MEM_MB} MB of memory, so large models may fail to slice."
 exit 0

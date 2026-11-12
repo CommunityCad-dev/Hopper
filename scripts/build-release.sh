@@ -15,8 +15,8 @@ cd "$(dirname "${BASH_SOURCE[0]}")/.."
 
 VERSION="${1:-$(git describe --tags --exact-match 2>/dev/null || echo "0.0.0-dev")}"
 OWNER="${RELEASE_OWNER:-CommunityCad-dev}"
-PROJECT="${RELEASE_PROJECT:-communitycad-klipper}"
-ASSET="${ASSET_NAME:-communitycad-klipper.zip}"
+PROJECT="${RELEASE_PROJECT:-Hopper}"
+ASSET="${ASSET_NAME:-hopper.zip}"
 OUT="${OUT_DIR:-dist}"
 
 echo "building $PROJECT $VERSION for $OWNER"
@@ -25,7 +25,10 @@ echo "building $PROJECT $VERSION for $OWNER"
 
 STAGE="$(mktemp -d)"
 trap 'rm -rf "$STAGE"' EXIT
-ROOT="$STAGE/$PROJECT"
+# Files at the root of the zip, no wrapper folder: Moonraker extracts the asset
+# straight into the configured path, so a wrapper would nest every update one level
+# deeper. Mainsail and Fluidd ship the same way. Install: unzip hopper.zip -d hopper
+ROOT="$STAGE/root"
 mkdir -p "$ROOT"
 
 # Everything a printer needs, and only that.
@@ -55,7 +58,7 @@ JSON
 
 mkdir -p "$OUT"
 rm -f "$OUT/$ASSET"
-( cd "$STAGE" && zip -qr "$ASSET" "$PROJECT" )
+( cd "$ROOT" && zip -qr "$STAGE/$ASSET" . )
 mv "$STAGE/$ASSET" "$OUT/$ASSET"
 
 echo "wrote $OUT/$ASSET ($(du -h "$OUT/$ASSET" | cut -f1))"

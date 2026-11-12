@@ -128,11 +128,11 @@ export function App({ version, hostName }: AppProps) {
     return (
       <div class="wrap" style={vars}>
         <div class="msg warn">
-          <p>CommunityCAD isn't installed on this printer.</p>
+          <p>Hopper isn't installed on this printer.</p>
           <p class="sub">
             Each printer needs its own install. On that printer's host, run:
           </p>
-          <pre class="cmd">{`cd ~ && wget ${REPO}/releases/latest/download/communitycad-klipper.zip\nunzip communitycad-klipper.zip && cd communitycad-klipper\nscripts/install-all.sh`}</pre>
+          <pre class="cmd">{`cd ~ && wget ${REPO}/releases/latest/download/hopper.zip\nunzip hopper.zip -d hopper && cd hopper\nscripts/install-all.sh`}</pre>
           <button class="btn" type="button" onClick={refresh}>Retry</button>
         </div>
       </div>
@@ -202,14 +202,14 @@ export function App({ version, hostName }: AppProps) {
         // still works; actions the API has dropped fail with their own message.
         <div class="msg warn" style="margin-bottom:14px;text-align:left">
           <p>
-            <strong>Update available.</strong> CommunityCAD now needs plugin{' '}
+            <strong>Update available.</strong> CommunityCAD now needs Hopper{' '}
             {status.min_plugin_version} or newer; this printer has{' '}
             {status.component_version}. Update through Mainsail or Fluidd.
           </p>
         </div>
       )}
       {view.name !== 'connect' && (
-        <nav class="topnav" aria-label="CommunityCAD">
+        <nav class="topnav" aria-label="Hopper">
           {TABS.map(([name, label, more]) => (
             <button
               key={name} class={`tab${more ? ' tab-more-item' : ''}`} type="button"
