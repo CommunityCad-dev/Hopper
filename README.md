@@ -65,8 +65,12 @@ On a computer, inside Mainsail:
     <td width="50%" valign="top"><img src="docs/media/screenshots/desktop-model.png" alt="A model: files, licence, and Print, Slice or Save"><br>A model: files, licence, and Print, Slice or Save</td>
   </tr>
   <tr>
-    <td width="50%" valign="top"><img src="docs/media/screenshots/desktop-preview.png" alt="Sliced on the printer: the layer preview, with your profiles"><br>Sliced on the printer: the layer preview, with your profiles</td>
+    <td width="50%" valign="top"><img src="docs/media/screenshots/desktop-project.png" alt="A project: the plate, filament and process, sliced on the printer"><br>A project: the plate, filament and process, sliced on the printer</td>
+    <td width="50%" valign="top"><img src="docs/media/screenshots/desktop-preview.png" alt="The layer preview, with your own profiles"><br>The layer preview, with your own profiles</td>
+  </tr>
+  <tr>
     <td width="50%" valign="top"><img src="docs/media/screenshots/desktop-print-confirm.png" alt="Print confirm: checked against your printer and material"><br>Print confirm: checked against your printer and material</td>
+    <td width="50%" valign="top"><img src="docs/media/screenshots/desktop-print-started.png" alt="And when it starts"><br>And when it starts</td>
   </tr>
   <tr>
     <td width="50%" valign="top"><img src="docs/media/screenshots/desktop-mainsail-dashboard.png" alt="Hopper's panel on the Mainsail dashboard"><br>Hopper's panel on the Mainsail dashboard</td>
@@ -84,6 +88,10 @@ And on a phone:
   <tr>
     <td width="50%" align="center" valign="top"><img src="docs/media/screenshots/phone-preview.png" width="260" alt="On a phone: The sliced preview"><br>The sliced preview</td>
     <td width="50%" align="center" valign="top"><img src="docs/media/screenshots/phone-print-confirm.png" width="260" alt="On a phone: Print confirm"><br>Print confirm</td>
+  </tr>
+  <tr>
+    <td width="50%" align="center" valign="top"><img src="docs/media/screenshots/phone-print-started.png" width="260" alt="On a phone: Printing"><br>Printing</td>
+    <td width="50%" align="center" valign="top"><img src="docs/media/screenshots/phone-mainsail-dashboard.png" width="260" alt="On a phone: The Mainsail dashboard"><br>The Mainsail dashboard</td>
   </tr>
 </table>
 
