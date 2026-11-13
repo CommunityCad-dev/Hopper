@@ -61,27 +61,31 @@ On a computer, inside Mainsail:
 
 <table>
   <tr>
-    <td width="50%" valign="top"><img src="docs/media/screenshots/desktop-browse.png" alt="Browse CommunityCAD, filtered to what fits your printer"><br><sub>Browse CommunityCAD, filtered to what fits your printer</sub></td>
-    <td width="50%" valign="top"><img src="docs/media/screenshots/desktop-model.png" alt="A model: files, licence, and Print, Slice or Save"><br><sub>A model: files, licence, and Print, Slice or Save</sub></td>
+    <td width="50%" valign="top"><img src="docs/media/screenshots/desktop-browse.png" alt="Browse CommunityCAD, filtered to what fits your printer"><br>Browse CommunityCAD, filtered to what fits your printer</td>
+    <td width="50%" valign="top"><img src="docs/media/screenshots/desktop-model.png" alt="A model: files, licence, and Print, Slice or Save"><br>A model: files, licence, and Print, Slice or Save</td>
   </tr>
   <tr>
-    <td width="50%" valign="top"><img src="docs/media/screenshots/desktop-preview.png" alt="Sliced on the printer: the layer preview, with your profiles"><br><sub>Sliced on the printer: the layer preview, with your profiles</sub></td>
-    <td width="50%" valign="top"><img src="docs/media/screenshots/desktop-print-confirm.png" alt="Print confirm: checked against your printer and material"><br><sub>Print confirm: checked against your printer and material</sub></td>
+    <td width="50%" valign="top"><img src="docs/media/screenshots/desktop-preview.png" alt="Sliced on the printer: the layer preview, with your profiles"><br>Sliced on the printer: the layer preview, with your profiles</td>
+    <td width="50%" valign="top"><img src="docs/media/screenshots/desktop-print-confirm.png" alt="Print confirm: checked against your printer and material"><br>Print confirm: checked against your printer and material</td>
   </tr>
   <tr>
-    <td width="50%" valign="top"><img src="docs/media/screenshots/desktop-mainsail-dashboard.png" alt="Hopper's panel on the Mainsail dashboard"><br><sub>Hopper's panel on the Mainsail dashboard</sub></td>
-    <td width="50%" valign="top"><img src="docs/media/screenshots/desktop-settings.png" alt="Settings: account, this printer, profiles and materials"><br><sub>Settings: account, this printer, profiles and materials</sub></td>
+    <td width="50%" valign="top"><img src="docs/media/screenshots/desktop-mainsail-dashboard.png" alt="Hopper's panel on the Mainsail dashboard"><br>Hopper's panel on the Mainsail dashboard</td>
+    <td width="50%" valign="top"><img src="docs/media/screenshots/desktop-settings.png" alt="Settings: account, this printer, profiles and materials"><br>Settings: account, this printer, profiles and materials</td>
   </tr>
 </table>
 
 And on a phone:
 
-<p align="center">
-  <img src="docs/media/screenshots/phone-browse.png" width="190" alt="On a phone: Browse">
-  <img src="docs/media/screenshots/phone-model.png" width="190" alt="On a phone: A model">
-  <img src="docs/media/screenshots/phone-preview.png" width="190" alt="On a phone: Preview">
-  <img src="docs/media/screenshots/phone-print-confirm.png" width="190" alt="On a phone: Print confirm">
-</p>
+<table>
+  <tr>
+    <td width="50%" align="center" valign="top"><img src="docs/media/screenshots/phone-browse.png" width="260" alt="On a phone: Browse"><br>Browse</td>
+    <td width="50%" align="center" valign="top"><img src="docs/media/screenshots/phone-model.png" width="260" alt="On a phone: A model"><br>A model</td>
+  </tr>
+  <tr>
+    <td width="50%" align="center" valign="top"><img src="docs/media/screenshots/phone-preview.png" width="260" alt="On a phone: The sliced preview"><br>The sliced preview</td>
+    <td width="50%" align="center" valign="top"><img src="docs/media/screenshots/phone-print-confirm.png" width="260" alt="On a phone: Print confirm"><br>Print confirm</td>
+  </tr>
+</table>
 
 ## Install
 
