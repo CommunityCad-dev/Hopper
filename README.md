@@ -55,6 +55,33 @@ script and a Moonraker component. Uninstalling returns the interface to stock, b
 
 **Status: beta**, with invited testers. Things will change, and feedback is very welcome.
 
+## Screenshots
+
+On a computer, inside Mainsail:
+
+<table>
+  <tr>
+    <td width="50%" valign="top"><img src="docs/media/screenshots/desktop-browse.png" alt="Browse CommunityCAD, filtered to what fits your printer"><br><sub>Browse CommunityCAD, filtered to what fits your printer</sub></td>
+    <td width="50%" valign="top"><img src="docs/media/screenshots/desktop-model.png" alt="A model: files, licence, and Print, Slice or Save"><br><sub>A model: files, licence, and Print, Slice or Save</sub></td>
+  </tr>
+  <tr>
+    <td width="50%" valign="top"><img src="docs/media/screenshots/desktop-preview.png" alt="Sliced on the printer: the layer preview, with your profiles"><br><sub>Sliced on the printer: the layer preview, with your profiles</sub></td>
+    <td width="50%" valign="top"><img src="docs/media/screenshots/desktop-print-confirm.png" alt="Print confirm: checked against your printer and material"><br><sub>Print confirm: checked against your printer and material</sub></td>
+  </tr>
+  <tr>
+    <td width="50%" valign="top"><img src="docs/media/screenshots/desktop-mainsail-dashboard.png" alt="Hopper's panel on the Mainsail dashboard"><br><sub>Hopper's panel on the Mainsail dashboard</sub></td>
+    <td width="50%" valign="top"><img src="docs/media/screenshots/desktop-settings.png" alt="Settings: account, this printer, profiles and materials"><br><sub>Settings: account, this printer, profiles and materials</sub></td>
+  </tr>
+</table>
+
+And on a phone:
+
+<p align="center">
+  <img src="docs/media/screenshots/phone-browse.png" width="190" alt="On a phone: Browse">
+  <img src="docs/media/screenshots/phone-model.png" width="190" alt="On a phone: A model">
+  <img src="docs/media/screenshots/phone-preview.png" width="190" alt="On a phone: Preview">
+  <img src="docs/media/screenshots/phone-print-confirm.png" width="190" alt="On a phone: Print confirm">
+</p>
 
 ## Install
 

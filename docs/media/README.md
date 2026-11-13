@@ -15,3 +15,7 @@ Made from the redacted recordings with ffmpeg, for example:
 
 Before adding one, look at every frame for hostnames, IP addresses (an SSH login's
 "Last login ... from" line), emails, account names and browser suggestions.
+
+`screenshots/` holds the README's screenshots, desktop (1440×900) and phone (390×844 at 2x),
+taken in a headless browser against a test printer.
+Retake them all together when the UI changes, and look at each one before committing.
