@@ -546,7 +546,8 @@ export function ProjectView({ project, onBack, onChanged, toolpathsUrl, bed, sen
         return p ? (
           <ConfirmSheet onClose={() => setConfirmPlate(null)}>
             <SentFile key={`confirm-${p.gcode}`} filename={p.gcode!} match={p.match!} printerState={job?.printer_state}
-              confirm onDecline={() => setConfirmPlate(null)} materials={materials.map((m) => m.name)}
+              confirm onDecline={() => setConfirmPlate(null)} onDone={() => setConfirmPlate(null)} title={title}
+              materials={materials.map((m) => m.name)}
               onChangeMaterial={(m) => { setConfirmPlate(null); set('material', m); }} />
           </ConfirmSheet>
         ) : null;

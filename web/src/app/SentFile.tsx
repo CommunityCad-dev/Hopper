@@ -3,6 +3,30 @@ import { useState } from 'preact/hooks';
 import { ApiError, startPrint } from './api';
 import type { MatchReport } from './types';
 
+/** "communitycad/3DBenchy-4_PLA_0.20mm.gcode" → "3DBenchy-4": what to call the print when nothing better is known. */
+export function printName(filename: string): string {
+  const base = filename.split('/').pop() ?? filename;
+  return base.replace(/\.gcode$/i, '').replace(/_[A-Za-z+-]+_\d+(\.\d+)?mm$/, '') || base;
+}
+
+/** A short burst of confetti, CSS only. Hidden for people who asked for less motion. */
+function Confetti() {
+  const colours = ['#3B82F6', '#7DB3FF', '#48bb78', '#f6ad55', '#f56565', '#b794f4', '#F1F5FF'];
+  return (
+    <div class="confetti" aria-hidden="true">
+      {Array.from({ length: 36 }, (_, i) => {
+        const x = Math.round((Math.random() - 0.5) * 340);
+        const y = Math.round(90 + Math.random() * 170);
+        const u = -Math.round(12 + Math.random() * 44);
+        const style = `--x:${x}px;--y:${y}px;--u:${u}px;--r:${Math.round(Math.random() * 720 - 360)}deg;`
+          + `--d:${(Math.random() * 0.25).toFixed(2)}s;--c:${colours[i % colours.length]};`
+          + `--w:${6 + (i % 3) * 2}px`;
+        return <span key={i} style={style} />;
+      })}
+    </div>
+  );
+}
+
 /**
  * What happens after a file reaches the printer.
  *
@@ -12,9 +36,14 @@ import type { MatchReport } from './types';
  * takes a second, deliberate action. Nothing here ever starts a print on its own.
  */
 export function SentFile({
-  filename, match, printerState, confirm = false, onDecline, fromCatalog = false, materials, onChangeMaterial,
+  filename, match, printerState, confirm = false, onDecline, onDone, title, fromCatalog = false, materials,
+  onChangeMaterial,
 }: {
   filename: string;
+  /** What's being printed, for the celebration; the file name stands in when absent. */
+  title?: string;
+  /** Closes the confirm after the print has started. */
+  onDone?: () => void;
   /** A file made by someone else on CommunityCAD, not sliced here: say so where it's started. */
   fromCatalog?: boolean;
   match: MatchReport;
@@ -31,7 +60,7 @@ export function SentFile({
   const [busy, setBusy] = useState(false);
   const [declined, setDeclined] = useState(false);
   const queues = printerState === 'printing' || printerState === 'paused';
-  const [outcome, setOutcome] = useState<string | null>(null);
+  const [outcome, setOutcome] = useState<'printing' | 'queued' | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [override, setOverride] = useState(false);
   // Every start asks for the material to be confirmed as loaded. A file for
@@ -48,7 +77,7 @@ export function SentFile({
     setError(null);
     try {
       const result = await startPrint(filename);
-      setOutcome(result.queued ? 'Added to the print queue.' : 'Printing.');
+      setOutcome(result.queued ? 'queued' : 'printing');
     } catch (err) {
       setError(err instanceof ApiError ? err.message : 'Could not start the print.');
     } finally {
@@ -64,10 +93,27 @@ export function SentFile({
     );
   }
 
+  // Someone just started making something: the one place the plugin cheers.
+  // Queued prints get a plain line, below.
+  if (outcome === 'printing') {
+    return (
+      <div class={confirm ? 'sent confirm started' : 'sent started'} role="status">
+        <Confetti />
+        <div class="started-emoji" aria-hidden="true">🎉</div>
+        <strong class="started-title">You're printing {title || printName(filename)}!</strong>
+        <p class="sub">It's warming up now. Stay close for the first layer: get that right and the rest follows.</p>
+        <div class="acts">
+          <a class="btn" href="/" title="Mainsail or Fluidd's dashboard">Watch it print</a>
+          {onDone && <button class="btn ghost" type="button" onClick={onDone}>Done</button>}
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div class={confirm ? 'sent confirm' : 'sent'}>
       {confirm && <strong class="confirm-title">{queues ? 'Ready to queue' : 'Ready to print'}</strong>}
-      <div class="sub">Saved as <strong>{filename}</strong></div>
+      <div class="sub saved-as">Saved as <strong>{filename}</strong></div>
 
       {warnings.length > 0 && (
         <div class="warnbox">
@@ -90,7 +136,7 @@ export function SentFile({
       )}
 
       {warnings.length === 0 && match.confident && (
-        <div class="sub">Checked against your printer, no problems found.</div>
+        <div class="sub check-ok"><span aria-hidden="true">✓</span> Checked against your printer, no problems found.</div>
       )}
 
       {fromCatalog && !outcome && (
@@ -121,7 +167,7 @@ export function SentFile({
         </div>
       )}
 
-      {outcome && <div class="sub" style="color:#48bb78">{outcome}</div>}
+      {outcome === 'queued' && <div class="sub check-ok">Added to the print queue. It starts after the current print.</div>}
       {error && <div class="sub" style="color:#f6ad55">{error}</div>}
 
       {!outcome && (
@@ -145,6 +191,12 @@ export function SentFile({
             </button>
           )}
         </div>
+      )}
+      {!outcome && !loaded && (warnings.length === 0 || override) && (
+        <div class="sub acts-hint">Tick that the material is loaded to start.</div>
+      )}
+      {outcome === 'queued' && onDone && (
+        <div class="acts"><button class="btn ghost" type="button" onClick={onDone}>Done</button></div>
       )}
     </div>
   );

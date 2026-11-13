@@ -259,13 +259,37 @@ a{color:var(--ccad-accent);text-decoration:none}
 .sheet{position:fixed;z-index:51;left:50%;top:50%;transform:translate(-50%,-50%);width:min(460px,calc(100vw - 32px));
   max-height:85vh;overflow:auto;background:#2a2b30;border:1px solid var(--ccad-line);border-radius:10px;
   padding:18px 18px 16px;box-shadow:0 12px 40px rgba(0,0,0,.55)}
-.sheet .sent{margin:0;border:0;padding:0;background:none}
-.sheet .confirm-title{font-size:17px;margin-bottom:8px;padding-right:36px}
-.sheet .acts{margin-top:14px}
+/* In the sheet, the sheet is the panel: the inline confirm card's outline would hug unpadded content. */
+.sheet .sent,.sheet .sent.confirm{margin:0;border:0;padding:0;background:none;box-shadow:none;gap:10px}
+.sheet .confirm-title{font-size:18px;line-height:28px;margin:0;padding-right:44px}
+.sheet .acts{margin-top:6px}
 .sheet .acts .btn{min-height:42px;padding:9px 18px}
-.sheet-close{position:absolute;top:10px;right:10px}
+.sheet-close{position:absolute;top:16px;right:16px}
+.saved-as{overflow-wrap:anywhere}
+.check-ok{color:#68d391}
+.material-check .check{border:1px solid var(--ccad-line);border-radius:8px;padding:12px;cursor:pointer;
+  background:rgba(255,255,255,.03);gap:10px}
+.material-check .check:has(input:checked){border-color:var(--ccad-accent);
+  background:color-mix(in srgb,var(--ccad-accent) 12%,transparent)}
+.acts-hint{font-size:12px;opacity:.75;margin-top:-2px}
+/* The moment a print starts: the one place the plugin celebrates. */
+.started{position:relative;overflow:hidden;text-align:center;justify-items:center;padding-top:28px}
+.started .acts{justify-content:center;justify-self:stretch}
+.sheet .acts .btn{white-space:nowrap}
+.started-emoji{font-size:56px;line-height:1;animation:ccad-pop .5s cubic-bezier(.2,1.6,.4,1) both}
+.started-title{font-size:20px;line-height:1.3}
+.started p{margin:0;max-width:34ch}
+.confetti{position:absolute;inset:0;pointer-events:none}
+.confetti span{position:absolute;left:50%;top:58px;width:var(--w);height:calc(var(--w) * 1.6);background:var(--c);
+  border-radius:2px;opacity:0;animation:ccad-confetti 1.6s cubic-bezier(.15,.6,.3,1) var(--d) forwards}
+@keyframes ccad-pop{0%{transform:scale(.3);opacity:0}100%{transform:scale(1);opacity:1}}
+@keyframes ccad-confetti{0%{opacity:1;transform:translate(-50%,0) rotate(0)}
+  30%{opacity:1;transform:translate(calc(-50% + var(--x) * .6),var(--u)) rotate(calc(var(--r) * .4))}
+  85%{opacity:1}100%{opacity:0;transform:translate(calc(-50% + var(--x)),var(--y)) rotate(var(--r))}}
+@media (prefers-reduced-motion:reduce){.confetti{display:none}.started-emoji{animation:none}}
 @media (max-width:600px){.sheet{left:0;right:0;top:auto;bottom:0;transform:none;width:auto;border-radius:14px 14px 0 0;
-  padding:18px 16px calc(16px + env(safe-area-inset-bottom))}}
+  padding:18px 16px calc(16px + env(safe-area-inset-bottom))}
+  .sheet .acts{display:flex}.sheet .acts .btn{flex:1 1 0;justify-content:center;text-align:center}}
 .menu{position:fixed;z-index:41;top:var(--menu-top,auto);bottom:var(--menu-bottom,auto);right:var(--menu-right,8px);
   width:280px;max-height:min(420px,70vh);overflow:auto;background:#2a2b30;border:1px solid var(--ccad-line);
   border-radius:8px;box-shadow:0 8px 28px rgba(0,0,0,.45);padding:6px;font-size:13px}

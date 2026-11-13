@@ -183,7 +183,7 @@ export function QuickPrint({ modelId, fileId, onOpenProject, onClose }: {
         // Print: the confirm opens over the page, not below the panel.
         <ConfirmSheet onClose={onClose}>
           <SentFile filename={sent.plate.gcode} match={sent.plate.match} printerState={sent.printerState}
-            confirm onDecline={onClose} materials={materials.map((m) => m.name)}
+            confirm onDecline={onClose} onDone={onClose} materials={materials.map((m) => m.name)}
             onChangeMaterial={(m) => reslice(m, profile)} />
         </ConfirmSheet>
       ) : (
