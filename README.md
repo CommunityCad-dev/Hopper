@@ -127,8 +127,16 @@ Tested on a Pi 4 with Debian 13 (trixie).
 | `scripts/install.sh` | Hopper only: browse, send G-code made elsewhere, share | nginx |
 | `scripts/install-orca.sh` | Slicing on the printer, added to an existing install | OrcaSlicer's libraries |
 
-`scripts/uninstall.sh` removes everything the first two add; `scripts/install-orca.sh --remove`
-removes just the slicer.
+**To uninstall**, the same one-liner with `--uninstall`:
+
+```bash
+bash <(curl -fsSL https://github.com/CommunityCad-dev/Hopper/releases/latest/download/install.sh) --uninstall
+```
+
+It runs `scripts/uninstall.sh`, which removes everything the install added, then deletes
+`~/hopper`. It keeps the printer's link and settings, so a reinstall doesn't need a new
+link; add `--purge` to remove those too. `scripts/install-orca.sh --remove` removes just
+the slicer.
 
 ## Use at your own risk
 
@@ -147,12 +155,14 @@ linked by approving a short code from your phone or computer, so nothing is type
 The installer shows this and asks before changing anything (`--accept` skips the question
 for scripted installs). The plugin asks once more, per printer, before its first send.
 
-**What install changes**, and `scripts/uninstall.sh` removes:
+**What install changes**, and uninstalling removes:
 
 - an nginx include in your Mainsail or Fluidd site, plus two snippet files (backed up first);
 - a `[communitycad]` section in `moonraker.conf`, and the component linked into Moonraker;
-- files under `~/communitycad` (the UI, OrcaSlicer if installed) and
-  `~/printer_data/communitycad` (settings, the printer's link token).
+- files under `~/communitycad` (the UI, OrcaSlicer if installed);
+- with `--purge` only: `~/printer_data/communitycad` (settings, the printer's link token)
+  and the backups in `~/communitycad`. The printer stays listed in your CommunityCAD
+  account until you remove it there.
 
 Your own files are kept on uninstall: `~/printer_data/models`, `~/printer_data/projects`,
 and `materials.cfg` / `print_profiles.cfg` beside `printer.cfg`.

@@ -67,7 +67,7 @@ echo "wrote $OUT/$ASSET ($(du -h "$OUT/$ASSET" | cut -f1))"
 
 # The one-command installer, attached to the release as install.sh. It downloads this
 # version's zip, so the script and the zip it unpacks always match.
-sed "s/__HOPPER_VERSION__/${VERSION#v}/" scripts/web-install.sh >"$OUT/install.sh"
+sed "s/__HOPPER_VERSION__/${VERSION#v}/g" scripts/web-install.sh >"$OUT/install.sh"
 grep -q "local version=\"${VERSION#v}\"" "$OUT/install.sh" || { echo "install.sh: version not stamped"; exit 1; }
 echo "wrote $OUT/install.sh (version ${VERSION#v})"
 echo "contents:"

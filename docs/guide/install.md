@@ -65,8 +65,28 @@ Mainsail or Fluidd's update panel next to Klipper and Moonraker, and update the 
 ## Uninstall
 
 ```bash
-cd ~/hopper
-scripts/uninstall.sh                # everything install.sh added
+bash <(curl -fsSL https://github.com/CommunityCad-dev/Hopper/releases/latest/download/install.sh) --uninstall
+```
+
+That runs `scripts/uninstall.sh` from `~/hopper` (downloading the release first if the
+folder is gone), then deletes `~/hopper`. If the uninstall stops partway, `~/hopper` is
+kept so you can run it again.
+
+It keeps this printer's link and settings (`~/printer_data/communitycad`), so a reinstall
+doesn't need a new link. To remove those too, and the install backups in `~/communitycad`:
+
+```bash
+bash <(curl -fsSL https://github.com/CommunityCad-dev/Hopper/releases/latest/download/install.sh) --uninstall --purge
+```
+
+Purging removes the link on the printer only: remove the printer from your CommunityCAD
+account as well.
+
+The same, by hand, from `~/hopper`:
+
+```bash
+scripts/uninstall.sh                # everything the install added
+scripts/uninstall.sh --purge        # ...and the link, settings and backups
 scripts/install-orca.sh --remove    # just the slicer
 ```
 

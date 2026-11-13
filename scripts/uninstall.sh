@@ -1,6 +1,11 @@
 #!/usr/bin/env bash
 # Remove the Hopper injection. Idempotent. Backs up every nginx file it changes or
 # removes to $CCAD_HOME/backups, then checks the served page is byte-identical to Mainsail's.
+#
+#   scripts/uninstall.sh           remove Hopper; keep this printer's link and settings
+#   scripts/uninstall.sh --purge   also remove the link, settings and ~/communitycad (backups too)
+#
+# Never removed: models, projects, and materials.cfg / print_profiles.cfg beside printer.cfg.
 source "$(dirname "${BASH_SOURCE[0]}")/common.sh"
 source "$(dirname "${BASH_SOURCE[0]}")/moonraker.sh"
 
@@ -8,9 +13,11 @@ source "$(dirname "${BASH_SOURCE[0]}")/moonraker.sh"
 # it exercises nginx and has no interest in Moonraker, and tearing the component down
 # on every run would restart Moonraker repeatedly for no reason.
 WITH_MOONRAKER=1
+PURGE=0
 for arg in "$@"; do
     case "$arg" in
         --with-moonraker=no|--no-moonraker) WITH_MOONRAKER=0 ;;
+        --purge) PURGE=1 ;;
     esac
 done
 
@@ -110,3 +117,23 @@ fi
 
 # Keep the backup directory from growing without bound.
 rotate_backups
+
+# --- purge -----------------------------------------------------------------------------
+# Only when asked: the link and settings are what a reinstall would otherwise reuse.
+if [[ $PURGE -eq 1 ]]; then
+    while IFS= read -r conf; do
+        [[ -n "$conf" ]] || continue
+        dp="$(data_path_for "$conf")"
+        if [[ -n "$dp" && -d "$dp/communitycad" ]]; then
+            rm -rf "$dp/communitycad"
+            log "purged this printer's link and settings ($dp/communitycad)"
+        fi
+    done < <(find_moonraker_configs)
+    if [[ -n "$CCAD_HOME" && "$CCAD_HOME" != "$HOME" && -d "$CCAD_HOME" ]]; then
+        rm -rf "$CCAD_HOME"
+        log "purged $CCAD_HOME, backups included"
+    fi
+    log "The printer still shows as linked in your CommunityCAD account until you remove it there."
+else
+    log "kept this printer's link and settings, so a reinstall needs no new link (--purge removes them)"
+fi
