@@ -32,6 +32,12 @@ Browse [CommunityCAD](https://communitycad.dev) models from inside Mainsail or F
 slice them on the printer with your own profiles, print, and share the result back. From
 your phone, without a PC.
 
+<p align="center">
+  <a href="https://youtu.be/inJyThbF6EE"><img src="docs/media/hopper-demo.webp" width="800" alt="Hopper demo: browse CommunityCAD models in Mainsail, link the printer, slice a Benchy on the printer and print it"></a>
+  <br>
+  <sub>Browse, link the printer, slice and print, sped up. <a href="https://youtu.be/inJyThbF6EE">Watch the demo on YouTube</a>.</sub>
+</p>
+
 ## What it does
 
 - **Discover.** Browse and search CommunityCAD models, with a "fits your printer" check
@@ -49,22 +55,6 @@ script and a Moonraker component. Uninstalling returns the interface to stock, b
 
 **Status: beta**, with invited testers. Things will change, and feedback is very welcome.
 
-<!--
-Screenshots and demo. Images live in docs/media/. Videos are on YouTube: GitHub can't
-embed or autoplay them, so show a short looping GIF or WebP that links to the video:
-
-## Demo
-
-[![Hopper demo](docs/media/demo.gif)](https://www.youtube.com/watch?v=VIDEO_ID)
-
-## Screenshots
-
-<p>
-  <img src="docs/media/browse.png" width="270" alt="Browse">
-  <img src="docs/media/model.png" width="270" alt="A model page">
-  <img src="docs/media/print.png" width="270" alt="Print confirm">
-</p>
--->
 
 ## Install
 
@@ -76,6 +66,12 @@ bash <(curl -fsSL https://github.com/CommunityCad-dev/Hopper/releases/latest/dow
 
 That downloads the latest release into `~/hopper` and runs `scripts/install-all.sh`.
 It needs only `curl` and `python3`, which every Klipper Pi already has.
+
+<p align="center">
+  <a href="https://youtu.be/_CVanOha9q8"><img src="docs/media/hopper-install.webp" width="640" alt="The one-line install on a Raspberry Pi: device check, notice, install and OrcaSlicer"></a>
+  <br>
+  <sub>A full install, at 2× speed. <a href="https://youtu.be/_CVanOha9q8">Watch on YouTube</a>.</sub>
+</p>
 
 <details>
 <summary>Rather read it before you run it?</summary>
@@ -137,6 +133,12 @@ It runs `scripts/uninstall.sh`, which removes everything the install added, then
 `~/hopper`. It keeps the printer's link and settings, so a reinstall doesn't need a new
 link; add `--purge` to remove those too. `scripts/install-orca.sh --remove` removes just
 the slicer.
+
+<p align="center">
+  <a href="https://youtu.be/6xyuDwNRh9w"><img src="docs/media/hopper-uninstall.webp" width="640" alt="The one-line uninstall with --purge, ending with Hopper is uninstalled"></a>
+  <br>
+  <sub><code>--uninstall --purge</code>, at 2× speed. <a href="https://youtu.be/6xyuDwNRh9w">Watch on YouTube</a>.</sub>
+</p>
 
 ## Use at your own risk
 
